@@ -1,0 +1,67 @@
+.itemDescription {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.itemTextDescription {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.backToSearchButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3em;
+}
+
+.itemContentBlock {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+.releaseDateItem,
+.tagLine,
+.overview,
+.budget {
+  margin-bottom: 1em;
+  font-size: 2em;
+}
+
+.itemDetailsTitle {
+  font-size: 3em;
+  font-weight: 900;
+}
+
+.releaseDateItem,
+.budget {
+  font-weight: 100;
+  font-size: 1.5em;
+}
+
+.tagLine {
+  font-weight: 900;
+}
+
+.popularityItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(13, 245, 52);
+  padding: 1em;
+  border-radius: 6em;
+  border: 1px solid rgb(13, 245, 52);
+  margin-left: 1em;
+  max-width: 1.5em;
+  max-height: 1.5em;
+}
+
+.titleItemBlock {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}

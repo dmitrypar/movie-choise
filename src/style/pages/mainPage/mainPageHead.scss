@@ -1,0 +1,34 @@
+.wrapperContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.topPageHeadBackgroundImg {
+  background-image: url("/src/assets/images/wrapperImg.png");
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomPageHeadWrapper {
+  background-image: url("/src/assets/images/wrapperFooterImg.png");
+  background-color: rgba(207, 211, 214, 0.5);
+  min-height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textBottomPageHead {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rightTextBottomPageHead{
+    display: flex;
+    justify-content: space-between;
+    min-width: 20%;
+}
+
+.valueFoundLeftTextBottonPageHead{
+    margin-right: 0.5em;
+}

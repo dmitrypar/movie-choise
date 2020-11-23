@@ -1,0 +1,28 @@
+.searchPanel {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.searchField {
+  margin: 1em 0 1em 0;
+}
+
+.searchField input {
+
+  border: none;
+  border-bottom-style: solid;
+  background-color: rgb(15, 15, 15);
+}
+
+.sortByGroupeButtons {
+  display: flex;
+  align-items: center;
+
+}
+
+.searchBy,
+.titleButton {
+  margin-right: 2em;
+  align-self:center
+}

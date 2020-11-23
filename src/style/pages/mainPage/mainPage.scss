@@ -1,0 +1,11 @@
+@import 'mainPageHead.scss';
+@import 'mainPageContent.scss';
+@import 'mainPageFooter.scss';
+@import 'mainItemDetails';
+
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
