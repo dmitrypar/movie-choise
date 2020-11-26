@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SearchField from "./searchField";
 import { API } from "../../API/api";
 import { useFormik } from "formik";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getSearchResultByName,
   getSearchResultByPerson,
@@ -10,13 +10,9 @@ import {
   requestSearchedresults,
 } from "../../search/redux/actions";
 
-const SearchFieldContainer = ({
-  getSearchResultByName,
-  getSearchResultByPerson,
-  setSearchSwitch,
-  searchSwitch,
-  requestSearchedresults,
-}) => {
+const SearchFieldContainer = () => {
+  const searchSwitch = useSelector(state=> state.searchedItems.switcher)
+  const dispatch = useDispatch()
   const { values: inputSearchValue, handleChange, handleSubmit } = useFormik({
     initialValues: {
       mainSearchForm: "",
@@ -28,14 +24,14 @@ const SearchFieldContainer = ({
   });
   const searchApiSwitcher = () => {
     if (searchSwitch) {
-      requestSearchedresults(inputSearchValue);
+      dispatch(requestSearchedresults(inputSearchValue));
       API.fetchSearchedItemsByTitle(inputSearchValue).then((data) =>
-        getSearchResultByName(data)
+      dispatch(getSearchResultByName(data))
       );
     } else {
-      requestSearchedresults(inputSearchValue);
+      dispatch(requestSearchedresults(inputSearchValue));
       API.fetchSearchedItemsByPerson(inputSearchValue).then((data) =>
-        getSearchResultByPerson(data)
+      dispatch(getSearchResultByPerson(data))
       );
     }
   };
@@ -46,6 +42,7 @@ const SearchFieldContainer = ({
   return (
     <SearchField
       searchSwitch={searchSwitch}
+      dispatch={dispatch}
       setSearchSwitch={setSearchSwitch}
       handleChange={handleChange}
       inputSearchValue={inputSearchValue}
@@ -54,13 +51,6 @@ const SearchFieldContainer = ({
   );
 };
 
-const mapStateToProps = (state) => ({
-  searchSwitch: state.searchedItems.switcher,
-});
 
-export default connect(mapStateToProps, {
-  getSearchResultByName,
-  getSearchResultByPerson,
-  setSearchSwitch,
-  requestSearchedresults,
-})(SearchFieldContainer);
+
+export default SearchFieldContainer;

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getSearchedAndSortedItems } from "../../search/redux/selectors";
 import { getSimilarSortedItems } from "../../item/redux/selectors";
 import { onCurrentItemSelected } from "../../item/redux/actions";
@@ -7,14 +7,14 @@ import MainItemDetailsContainer from "../../components/mainItemDetails/MainItemD
 
 const MainPageContent = (props) => {
   const {
-    searchResults,
-    isPath,
-    searchSwitch,
-    onCurrentItemSelected,
-    similarItems,
+    isPath
   } = props;
+  const dispatch = useDispatch()
+  const searchResults = useSelector(state=>getSearchedAndSortedItems(state))
+  const searchSwitch = useSelector(state=>state.searchedItems.switcher)
+  const similarItems = useSelector(state=>getSimilarSortedItems(state))
   const onItenButtonClick = (id) => {
-    onCurrentItemSelected(id);
+    dispatch(onCurrentItemSelected(id));
   };
 
   const getResultsToRender = () => {
@@ -54,12 +54,6 @@ const MainPageContent = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  searchResults: getSearchedAndSortedItems(state),
-  searchSwitch: state.searchedItems.switcher,
-  similarItems: getSimilarSortedItems(state),
-});
 
-export default connect(mapStateToProps, { onCurrentItemSelected })(
-  MainPageContent
-);
+
+export default MainPageContent

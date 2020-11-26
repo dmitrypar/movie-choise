@@ -1,5 +1,10 @@
 import { createSelector } from "reselect";
 
+export const getItemData = (state) => {
+  return state.currentItemStore.currentItem.data;
+}
+
+
 const getResultsBySimilar = (state) => {
   return state.currentItemStore.similarListItems.data;
 };

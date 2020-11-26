@@ -2,27 +2,31 @@ import React, { useState } from "react";
 import { Redirect } from "react-router";
 import SearchFieldContainer from "../../../components/searchField/searchFieldContainer";
 import ItemDescription from "../../../components/mainItemDetails/itemDescription";
-import { setSortToReleaseDateGlobal, requestSearchedresults } from "../../../search/redux/actions";
-import { connect } from "react-redux";
+import { setSortToReleaseDateGlobal } from "../../../search/redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 import { getSearchedAndSortedItems } from "../../../search/redux/selectors";
 import TextBottomPageHead from "./textBottomPageHead";
 
 const MainPageHeadWrapper = ({
-  isPath,
-  setSortToReleaseDateGlobal,
-  sortToDate,
-  moviesCount,
-  searchSwitch,
-  searchedValue
+  isPath
 }) => {
+
+  const sortToDate = useSelector(state=>state.searchedItems.sortByDate)
+  const moviesCount = useSelector(state=>getSearchedAndSortedItems(state) && getSearchedAndSortedItems(state).length)
+  const searchSwitch = useSelector(state=>state.searchedItems.switcher)
+  const searchedValue = useSelector(state=>state.searchedItems.searchValue)
+
+  const dispatch = useDispatch()
+
   const isSearch = isPath === "/search";
   const isFilm = isPath === "/film/:slug";
+
   const onByReleaseDateClicked = () => {
-    setSortToReleaseDateGlobal({sortdate:true, searchedValue:searchedValue});
+    dispatch(setSortToReleaseDateGlobal({sortdate:true, searchedValue:searchedValue}));
     
   };
   const onByRatingClicked = () => {
-    setSortToReleaseDateGlobal({sortdate:false, searchedValue:searchedValue});
+    dispatch(setSortToReleaseDateGlobal({sortdate:false, searchedValue:searchedValue}));
   };
   const sortItemSelectorByDate = sortToDate
     ? "selectedSortByReleaseDate"
@@ -60,14 +64,6 @@ const MainPageHeadWrapper = ({
   );
 };
 
-const mapStateToprops = (state) => ({
-  sortToDate: state.searchedItems.sortByDate,
-  moviesCount:
-    getSearchedAndSortedItems(state) && getSearchedAndSortedItems(state).length,
-  searchSwitch: state.searchedItems.switcher,
-  searchedValue: state.searchedItems.searchValue
-});
 
-export default connect(mapStateToprops, { setSortToReleaseDateGlobal, requestSearchedresults })(
-  MainPageHeadWrapper
-);
+
+export default MainPageHeadWrapper;

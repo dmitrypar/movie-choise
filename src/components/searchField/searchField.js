@@ -7,12 +7,13 @@ const SearchField = ({
   handleSubmit,
   searchSwitch,
   setSearchSwitch,
+  dispatch
 }) => {
   const sortbyTitle = () => {
-    setSearchSwitch(true);
+    dispatch(setSearchSwitch(true));
   };
   const sortbyPerson = () => {
-    setSearchSwitch(false);
+    dispatch(setSearchSwitch(false));
   };
   return (
     <form className="searchField" onSubmit={handleSubmit}>
