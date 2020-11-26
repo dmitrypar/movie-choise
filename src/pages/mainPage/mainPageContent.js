@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import {
-  getSearchedAndSortedItems,
-  getSimilarSortedItems,
-} from "../../redux/itemSelectors";
-import { onCurrentItemSelected } from "./../../redux/actions";
+import { getSearchedAndSortedItems } from "../../search/redux/selectors";
+import { getSimilarSortedItems } from "../../item/redux/selectors";
+import { onCurrentItemSelected } from "../../item/redux/actions";
 import MainItemDetailsContainer from "../../components/mainItemDetails/MainItemDetailsContainer";
 
 const MainPageContent = (props) => {
@@ -58,7 +56,7 @@ const MainPageContent = (props) => {
 
 const mapStateToProps = (state) => ({
   searchResults: getSearchedAndSortedItems(state),
-  searchSwitch: state.navigateData.switcher,
+  searchSwitch: state.searchedItems.switcher,
   similarItems: getSimilarSortedItems(state),
 });
 

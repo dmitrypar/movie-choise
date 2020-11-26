@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Redirect } from "react-router";
 import SearchFieldContainer from "../../../components/searchField/searchFieldContainer";
 import ItemDescription from "../../../components/mainItemDetails/itemDescription";
-import { setSortToReleaseDateGlobal, requestSearchedresults } from "./../../../redux/actions";
+import { setSortToReleaseDateGlobal, requestSearchedresults } from "../../../search/redux/actions";
 import { connect } from "react-redux";
-import { getSearchedAndSortedItems } from "./../../../redux/itemSelectors";
+import { getSearchedAndSortedItems } from "../../../search/redux/selectors";
 import TextBottomPageHead from "./textBottomPageHead";
 
 const MainPageHeadWrapper = ({
@@ -64,7 +64,7 @@ const mapStateToprops = (state) => ({
   sortToDate: state.searchedItems.sortByDate,
   moviesCount:
     getSearchedAndSortedItems(state) && getSearchedAndSortedItems(state).length,
-  searchSwitch: state.navigateData.switcher,
+  searchSwitch: state.searchedItems.switcher,
   searchedValue: state.searchedItems.searchValue
 });
 

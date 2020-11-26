@@ -1,34 +1,22 @@
-import { takeEvery, put, call, take, all } from "redux-saga/effects";
+import {  put } from "redux-saga/effects";
 import {
   GET_CURRENT_ITEM,
   GET_SIMILAR_LIST_ITEM,
-  REQUEST_CURRENT_ITEM,
-  SET_SORT_BY_DATE,
+} from "./../item/redux/types";
+import {
   GET_SEARCH_RESULT_BY_NAME,
   GET_SEARCH_RESULT_BY_PERSON,
-} from "./types";
-import { API } from "./../API/api";
+} from "./../search/redux/types"
+import { API } from "../API/api";
 
-export function* sagaWatcherItem() {
-  yield takeEvery(REQUEST_CURRENT_ITEM, sagaWorkerOnItemChoesed);
-}
-
-export function* sagaWatcherSearch() {
-  yield takeEvery(SET_SORT_BY_DATE, sagaWorkerOnSearch);
-}
-
-export default function* rootSaga() {
-  yield all([sagaWatcherItem(), sagaWatcherSearch()]);
-}
-
-function* sagaWorkerOnItemChoesed(action) {
+export function* itemChoesedSagaWorker(action) {
   const currentItem = yield API.getCurrentItem(action.payload);
   yield put({ type: GET_CURRENT_ITEM, payload: currentItem });
   const similarListItem = yield API.getSimilarListItems(action.payload);
   yield put({ type: GET_SIMILAR_LIST_ITEM, payload: similarListItem });
 }
 
-function* sagaWorkerOnSearch(action) {
+export function* onSearchSagaWorker(action) {
   const searchedtItemsByTitle = yield API.fetchSearchedItemsByTitle(
     action.payload.searchedValue
   );
