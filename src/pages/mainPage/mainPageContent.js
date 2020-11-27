@@ -10,9 +10,9 @@ const MainPageContent = (props) => {
     isPath
   } = props;
   const dispatch = useDispatch()
-  const searchResults = useSelector(state=>getSearchedAndSortedItems(state))
+  const searchResults = useSelector(getSearchedAndSortedItems)
   const searchSwitch = useSelector(state=>state.searchedItems.switcher)
-  const similarItems = useSelector(state=>getSimilarSortedItems(state))
+  const similarItems = useSelector(getSimilarSortedItems)
   const onItenButtonClick = (id) => {
     dispatch(onCurrentItemSelected(id));
   };
