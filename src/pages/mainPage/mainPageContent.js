@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSearchedAndSortedItems } from "../../search/redux/selectors";
-import { getSimilarSortedItems } from "../../item/redux/selectors";
-import { onCurrentItemSelected } from "../../item/redux/actions";
+import { getSearchedAndSortedItems } from "../../redux/search/selectors";
+import { getSimilarSortedItems } from "../../redux/item/selectors";
+import { onCurrentItemSelected } from "../../redux/item/actions";
 import MainItemDetailsContainer from "../../components/mainItemDetails/MainItemDetailsContainer";
 
 const MainPageContent = (props) => {

@@ -4,7 +4,7 @@ import * as ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from './routes.js';
 import { Provider } from "react-redux";
-import {store} from './redux/store'
+import {store} from './store'
 
 const App: React.FC = () => (
   <Provider store={store}>

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Redirect } from "react-router";
 import SearchFieldContainer from "../../../components/searchField/searchFieldContainer";
 import ItemDescription from "../../../components/mainItemDetails/itemDescription";
-import { setSortToReleaseDateGlobal } from "../../../search/redux/actions";
+import { setSortToReleaseDateGlobal } from "../../../redux/search/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { getSearchedAndSortedItems } from "../../../search/redux/selectors";
+import { getSearchedAndSortedItems } from "../../../redux/search/selectors";
 import TextBottomPageHead from "./textBottomPageHead";
 
 const MainPageHeadWrapper = ({

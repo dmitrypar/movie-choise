@@ -4,7 +4,7 @@ import ItemCover from "../itemCover";
 import { useSelector } from "react-redux";
 import { API } from "../../API/api";
 import BackToSearchButton from "../backToSearchButton";
-import {getItemData} from './../../item/redux/selectors';
+import {getItemData} from '../../redux/item/selectors';
 
 const ItemDescription = () => {
   const itemDetails = useSelector(getItemData)

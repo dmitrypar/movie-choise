@@ -7,10 +7,6 @@
       "jsx": "react",
       "allowJs": true
     },
-    "baseUrl": "./src",
-//     "paths": {
-//     "@components/*": ["components/*"],
-//     "@routes/*": ["baseUrl/routes"],
-//     "@pages/*": ["pages/*"]
-// }
+    "baseUrl": "./src"
+
   }

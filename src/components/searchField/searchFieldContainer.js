@@ -8,7 +8,7 @@ import {
   getSearchResultByPerson,
   setSearchSwitch,
   requestSearchedresults,
-} from "../../search/redux/actions";
+} from "../../redux/search/actions";
 
 const SearchFieldContainer = () => {
   const searchSwitch = useSelector(state=> state.searchedItems.switcher)
