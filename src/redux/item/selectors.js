@@ -1,17 +1,16 @@
 import { createSelector } from "reselect";
 
 export const getItemData = (state) => {
-  return state.currentItemStore.currentItem.data;
-}
-
+  return state.currentItemStore.currentItem;
+};
 
 const getResultsBySimilar = (state) => {
   return state.currentItemStore.similarListItems.data;
 };
 
 const switchResultToSortByDate = (state) => {
-    return state.searchedItems.sortByDate;
-  };
+  return state.searchedItems.sortByDate;
+};
 
 export const getItemsForSimilar = createSelector(
   getResultsBySimilar,
@@ -21,11 +20,11 @@ export const getItemsForSimilar = createSelector(
 );
 
 const sortItemsByField = (itemsToSort, fieldName) => {
-    return (
-      itemsToSort &&
-      itemsToSort.sort((a, b) => (a[fieldName] > b[fieldName] ? 1 : -1))
-    );
-  };
+  return (
+    itemsToSort &&
+    itemsToSort.sort((a, b) => (a[fieldName] > b[fieldName] ? 1 : -1))
+  );
+};
 
 export const getSortedItems = (ItemsArray) =>
   createSelector(
@@ -41,9 +40,5 @@ export const getSortedItems = (ItemsArray) =>
       return finalSortedItems;
     }
   );
-
-
-
-
 
 export const getSimilarSortedItems = getSortedItems(getItemsForSimilar);

@@ -1,21 +1,19 @@
-import {  put } from "redux-saga/effects";
-import {ItemLabelTypes} from "./../redux/item/types";
-import {SearchLabelTypes} from './../redux/search/types'
-import {
-  SAVE_CURRENT_ITEM,
-  GET_SIMILAR_LIST_ITEM,
-} from "../redux/item/types";
-import {
-  GET_SEARCH_RESULT_BY_NAME,
-  GET_SEARCH_RESULT_BY_PERSON,
-} from "../redux/search/types"
+import { put } from "redux-saga/effects";
+import { ItemLabelTypes } from "./../redux/item/action-types";
+import { SearchLabelTypes } from "./../redux/search/action-types";
 import { API } from "../API/api";
 
 export function* itemChoesedSagaWorker(action) {
   const currentItem = yield API.getCurrentItem(action.itemId);
-  yield put({ type: ItemLabelTypes.SAVE_CURRENT_ITEM, payload: currentItem });
+  yield put({
+    type: ItemLabelTypes.SAVE_CURRENT_ITEM,
+    payload: currentItem.data,
+  });
   const similarListItem = yield API.getSimilarListItems(action.itemId);
-  yield put({ type: ItemLabelTypes.GET_SIMILAR_LIST_ITEM, payload: similarListItem });
+  yield put({
+    type: ItemLabelTypes.GET_SIMILAR_LIST_ITEM,
+    payload: similarListItem,
+  });
 }
 
 export function* onSearchSagaWorker(action) {

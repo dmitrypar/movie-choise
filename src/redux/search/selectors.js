@@ -1,6 +1,5 @@
 import { createSelector } from "reselect";
 
-
 const getSearchedResultsByName = (state) => {
   return state.searchedItems.searchResultsByName.data;
 };
@@ -14,7 +13,6 @@ const switchResultByTitleOrPerson = (state) => {
 const switchResultToSortByDate = (state) => {
   return state.searchedItems.sortByDate;
 };
-
 
 export const getItemsAfterSearch = createSelector(
   getSearchedResultsByName,
@@ -32,8 +30,6 @@ export const getItemsAfterSearch = createSelector(
     return generalRawSearchedResults;
   }
 );
-
-
 
 export const getSortedItems = (ItemsArray) =>
   createSelector(
@@ -58,7 +54,3 @@ const sortItemsByField = (itemsToSort, fieldName) => {
 };
 
 export const getSearchedAndSortedItems = getSortedItems(getItemsAfterSearch);
-
-
-
-
