@@ -1,6 +1,6 @@
 import { ItemLabelTypes } from "./action-types";
 import * as itemActions from "./actions";
-import { InferValueTypes } from "../common-types";
+import { InferActionCreatorsTypes } from "../common-types";
 import { ItemType, SimilarListItemsType } from "./types";
 
 export type ItemState = {
@@ -19,7 +19,7 @@ const initialItemState: ItemState = {
 export const currentItemReducer = (
   state = initialItemState,
   //action: ReturnType<InferValueTypes<typeof itemActions>>
-  action: InferValueTypes<typeof itemActions>
+  action: InferActionCreatorsTypes<typeof itemActions>
 ): ItemState => {
   switch (action.type) {
     case ItemLabelTypes.REQUEST_CURRENT_ITEM:

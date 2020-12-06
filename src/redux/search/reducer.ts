@@ -1,5 +1,5 @@
 import { SearchLabelTypes } from "./action-types";
-import { InferValueTypes } from "../common-types";
+import { InferActionCreatorsTypes } from "../common-types";
 import * as searchActions from "./actions";
 import { SearchedItemsByNameTypes, SearchedItemsByPersonTypes } from "./types";
 
@@ -22,7 +22,7 @@ const initialItemsState: ItemsState = {
 
 export const itemsReducer = (
   state = initialItemsState,
-  action: InferValueTypes<typeof searchActions>
+  action: InferActionCreatorsTypes<typeof searchActions>
 ): ItemsState => {
   switch (action.type) {
     case SearchLabelTypes.SWITCH_SEARCH:

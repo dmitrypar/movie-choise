@@ -1,6 +1,20 @@
-@import "pages/mainPage/mainPage.scss";
-@import "components/components.scss";
+// <<mainPage>>
+@import "../pages/mainPage/mainPage.scss";
 
+// <<components>>
+
+//backToSearchButton
+@import "../components/backToSearchButton.scss";
+//itemCover
+@import "../components/itemCover.scss";
+//searchField
+@import "../components/searchField/searchField.scss";
+//logo
+@import "../components/logo.scss";
+//itemDescription
+@import "../components/mainItemDetails/itemDescription";
+
+// <<common>>
 $white-color-text: rgb(207, 211, 214);
 $red-color-text: rgb(226, 40, 86);
 $grey-color: rgb(70, 71, 71);
@@ -23,26 +37,24 @@ $searchFieldPadding: 3em;
 
 .searchResultContainer {
   width: $main-block-width;
- }
-
- .itemCover {
-  min-height: 0.4*$main-block-width;
-  }
-
-  .itemWrapper
-  {
-    width: 0.25*$main-block-width;
-    margin: 0.035*$main-block-width;
 }
 
-.itemTextDescription
-{
-  margin: 0.035*$main-block-width;
+.itemCover {
+  min-height: 0.4 * $main-block-width;
 }
 
-.coverImage{
-  width: 0.25*$main-block-width;
-  height: 0.4*$main-block-width;
+.itemWrapper {
+  width: 0.25 * $main-block-width;
+  margin: 0.035 * $main-block-width;
+}
+
+.itemTextDescription {
+  margin: 0.035 * $main-block-width;
+}
+
+.coverImage {
+  width: 0.25 * $main-block-width;
+  height: 0.4 * $main-block-width;
 }
 
 .mainWrapper {
@@ -50,7 +62,7 @@ $searchFieldPadding: 3em;
   justify-content: center;
 }
 
-.noItemsSearched{
+.noItemsSearched {
   color: $grey-color;
 }
 
@@ -99,8 +111,8 @@ $searchFieldPadding: 3em;
 
 .selectedSortByReleaseDate,
 .selectedSortByRating {
-    color: $red-color-text;
-    font-weight: 900;
+  color: $red-color-text;
+  font-weight: 900;
 }
 
 .popularity,
@@ -109,7 +121,7 @@ $searchFieldPadding: 3em;
 .sortBlock,
 .sortByReleaseDate,
 .sortByRating {
-    font-weight: 900;
+  font-weight: 900;
 }
 
 .releaseData {
@@ -124,23 +136,20 @@ $searchFieldPadding: 3em;
 
 .searchField input {
   margin-top: 3em;
-  padding: 1em 1em 1em ;
+  padding: 1em 1em 1em;
   height: 40px;
   min-width: 100%;
-  box-sizing:border-box;
-  
+  box-sizing: border-box;
 }
 
-.itemDetailsTitle{
-    color: $red-color-text;
+.itemDetailsTitle {
+  color: $red-color-text;
 }
 
 .releaseDateItem,
 .tagLine,
 .overview,
-.budget
-
-{
+.budget {
   color: $white-color-text;
 }
 

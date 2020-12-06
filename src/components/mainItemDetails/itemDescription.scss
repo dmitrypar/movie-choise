@@ -10,6 +10,32 @@
   width: 100%;
 }
 
+/// mainItemDetails
+.itemWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomItemTextWrapper {
+  padding-top: 1em;
+  margin: 0.5em;
+}
+////
+
+
+.topLineTextItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.releaseData {
+  border: solid 1px black;
+  padding: 0.15em 0.5em 0.15em 0.5em;
+  max-height: 1.2em;
+  font-size: 1em;
+  margin-top: -0.3em;
+}
+
 .backToSearchButton {
   display: flex;
   justify-content: space-between;
