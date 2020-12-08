@@ -1,16 +1,19 @@
+import { SearchedItemsByNameTypes, SearchedItemsByPersonTypes } from './types';
+import { AplicationType } from './../root-reducer';
+
 import { createSelector } from "reselect";
 
-const getSearchedResultsByName = (state) => {
-  return state.searchedItems.searchResultsByName.data;
+const getSearchedResultsByName = (state: AplicationType) => {
+  return state.searchedItems.searchResultsByName;
 };
-const getSearchedResultsByPerson = (state) => {
-  return state.searchedItems.searchResultsByPerson.data;
+const getSearchedResultsByPerson = (state: AplicationType) => {
+  return state.searchedItems.searchResultsByPerson;
 };
-const switchResultByTitleOrPerson = (state) => {
+const switchResultByTitleOrPerson = (state: AplicationType) => {
   return state.searchedItems.switcher;
 };
 
-const switchResultToSortByDate = (state) => {
+const switchResultToSortByDate = (state: AplicationType) => {
   return state.searchedItems.sortByDate;
 };
 
@@ -18,7 +21,7 @@ export const getItemsAfterSearch = createSelector(
   getSearchedResultsByName,
   getSearchedResultsByPerson,
   switchResultByTitleOrPerson,
-  (resbyname, resbypreson, switcher) => {
+  (resbyname: SearchedItemsByNameTypes, resbypreson: SearchedItemsByPersonTypes, switcher: boolean) => {
     let generalRawSearchedResults;
     if (switcher) {
       generalRawSearchedResults = resbyname && resbyname.results;
@@ -31,9 +34,9 @@ export const getItemsAfterSearch = createSelector(
   }
 );
 
-export const getSortedItems = (ItemsArray) =>
+export const getSearchedAndSortedItems = 
   createSelector(
-    ItemsArray,
+    getItemsAfterSearch,
     switchResultToSortByDate,
     (sortItem, modeByDate) => {
       let finalSortedItems;
@@ -46,11 +49,11 @@ export const getSortedItems = (ItemsArray) =>
     }
   );
 
-const sortItemsByField = (itemsToSort, fieldName) => {
+const sortItemsByField = (itemsToSort: any[], fieldName: string) => {
   return (
     itemsToSort &&
     itemsToSort.sort((a, b) => (a[fieldName] > b[fieldName] ? 1 : -1))
   );
 };
 
-export const getSearchedAndSortedItems = getSortedItems(getItemsAfterSearch);
+

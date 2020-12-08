@@ -1,32 +1,30 @@
 import { fetchItemAndSearchData } from "./fetch-config";
 
-type inputSearchValueType = {
-  mainSearchForm: string
-}
 
 export const API = {
 
-  fetchSearchedItemsByTitle(inputSearchValue: inputSearchValueType ): any {
+  fetchSearchedItemsByTitle(inputSearchValue: string ) {
+    console.log(inputSearchValue)
     return fetchItemAndSearchData(
       "search/", "movie", "", 1, false,
-      inputSearchValue && inputSearchValue.mainSearchForm
+      inputSearchValue 
     );
   },
 
-  fetchSearchedItemsByPerson(inputSearchValue: inputSearchValueType): any {
+  fetchSearchedItemsByPerson(inputSearchValue: string) {
     return fetchItemAndSearchData(
       "search/", "person", "", 1, false,
-      inputSearchValue && inputSearchValue.mainSearchForm
+      inputSearchValue 
     );
   },
 
-  getCurrentItem(itemId: string): any {
+  getCurrentItem(itemId: string) {
     return fetchItemAndSearchData(
       "movie/", itemId, "", null, null, null
       );
   },
 
-  getSimilarListItems(itemId: string): any {
+  getSimilarListItems(itemId: string) {
     return fetchItemAndSearchData(
       "movie/", itemId, "/similar", 1, null, null
       );

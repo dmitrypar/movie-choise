@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import SearchField from "./searchField";
-import { API } from "../../API/api";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getSearchResultByName,
-  getSearchResultByPerson,
   setSearchSwitch,
   requestSearchedresults,
 } from "../../redux/search/actions";
 
 const SearchFieldContainer = () => {
-  const searchSwitch = useSelector(state=> state.searchedItems.switcher)
-  const dispatch = useDispatch()
+  const searchSwitch = useSelector((state) => state.searchedItems.switcher);
+  const dispatch = useDispatch();
   const { values: inputSearchValue, handleChange, handleSubmit } = useFormik({
     initialValues: {
       mainSearchForm: "",
@@ -24,15 +21,9 @@ const SearchFieldContainer = () => {
   });
   const searchApiSwitcher = () => {
     if (searchSwitch) {
-      dispatch(requestSearchedresults(inputSearchValue));
-      API.fetchSearchedItemsByTitle(inputSearchValue).then((data) =>
-      dispatch(getSearchResultByName(data))
-      );
+      dispatch(requestSearchedresults(inputSearchValue.mainSearchForm));
     } else {
-      dispatch(requestSearchedresults(inputSearchValue));
-      API.fetchSearchedItemsByPerson(inputSearchValue).then((data) =>
-      dispatch(getSearchResultByPerson(data))
-      );
+      dispatch(requestSearchedresults(inputSearchValue.mainSearchForm));
     }
   };
   useEffect(() => {
@@ -50,7 +41,5 @@ const SearchFieldContainer = () => {
     />
   );
 };
-
-
 
 export default SearchFieldContainer;

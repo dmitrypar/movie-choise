@@ -35,7 +35,7 @@ export type SimilarListItemsType = {
 
 //type SimilarListResultsItems = [SimilarResultItem]
 
-type SimilarResultItem = {
+export type SimilarResultItem = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: [];
