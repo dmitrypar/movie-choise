@@ -1,5 +1,9 @@
-import { SearchedItemsByNameTypes, SearchedItemsByPersonTypes } from './types';
-import { AplicationType } from './../root-reducer';
+import {
+  SearchedItemsByNameTypes,
+  SearchedItemsByPersonTypes,
+  SearchedResultsByNameTypes,
+} from "./types";
+import { AplicationType } from "./../root-reducer";
 
 import { createSelector } from "reselect";
 
@@ -21,7 +25,11 @@ export const getItemsAfterSearch = createSelector(
   getSearchedResultsByName,
   getSearchedResultsByPerson,
   switchResultByTitleOrPerson,
-  (resbyname: SearchedItemsByNameTypes, resbypreson: SearchedItemsByPersonTypes, switcher: boolean) => {
+  (
+    resbyname: SearchedItemsByNameTypes,
+    resbypreson: SearchedItemsByPersonTypes,
+    switcher: boolean
+  ) => {
     let generalRawSearchedResults;
     if (switcher) {
       generalRawSearchedResults = resbyname && resbyname.results;
@@ -34,20 +42,20 @@ export const getItemsAfterSearch = createSelector(
   }
 );
 
-export const getSearchedAndSortedItems = 
-  createSelector(
-    getItemsAfterSearch,
-    switchResultToSortByDate,
-    (sortItem, modeByDate) => {
-      let finalSortedItems;
-      if (modeByDate) {
-        finalSortedItems = sortItemsByField(sortItem, "release_date");
-      } else {
-        finalSortedItems = sortItemsByField(sortItem, "popularity");
-      }
-      return finalSortedItems;
-    }
-  );
+export const getSearchedAndSortedItems = createSelector<
+  AplicationType,
+  ReturnType<typeof getItemsAfterSearch>,
+  boolean,
+  SearchedResultsByNameTypes[]>
+  (getItemsAfterSearch, switchResultToSortByDate, (sortItem, modeByDate) => {
+  let finalSortedItems;
+  if (modeByDate) {
+    finalSortedItems = sortItemsByField(sortItem, "release_date");
+  } else {
+    finalSortedItems = sortItemsByField(sortItem, "popularity");
+  }
+  return finalSortedItems;
+});
 
 const sortItemsByField = (itemsToSort: any[], fieldName: string) => {
   return (
@@ -55,5 +63,3 @@ const sortItemsByField = (itemsToSort: any[], fieldName: string) => {
     itemsToSort.sort((a, b) => (a[fieldName] > b[fieldName] ? 1 : -1))
   );
 };
-
-

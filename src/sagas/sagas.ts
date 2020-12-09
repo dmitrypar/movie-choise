@@ -1,56 +1,66 @@
-import { requestSearchedresults, setSortToReleaseDateGlobal } from './../redux/search/actions';
-import { onCurrentItemSelected } from './../redux/item/actions';
-import { put } from "redux-saga/effects";
-import { ItemLabelTypes } from "../redux/item/action-types";
-import { SearchLabelTypes } from "../redux/search/action-types";
+import {
+  SearchedItemsByNameTypes,
+  SearchedItemsByPersonTypes,
+} from "./../redux/search/types";
+import { AxiosResponseType } from "./../redux/common-types";
+import { ItemType, SimilarListItemsType } from "./../redux/item/types";
+import {
+  requestSearchedresults,
+  setSortToReleaseDateGlobal,
+  getSearchResultByName,
+  getSearchResultByPerson,
+} from "./../redux/search/actions";
+import {
+  onCurrentItemSelected,
+  saveCurrentItem,
+  getSimilarListItem,
+} from "./../redux/item/actions";
+import { call, put } from "redux-saga/effects";
 import { API } from "../API/api";
 
+export function* onItemChoeseSagaWorker(
+  action: ReturnType<typeof onCurrentItemSelected>
+) {
+  const currentItem: AxiosResponseType<ItemType> = yield call(
+    API.getCurrentItem,
+    action.itemId
+  );
+  yield put(saveCurrentItem(currentItem.data));
 
-export function* itemChoesedSagaWorker(action: ReturnType<typeof onCurrentItemSelected> ) {
-  const currentItem = yield API.getCurrentItem(action.itemId);
-  yield put({
-    type: ItemLabelTypes.SAVE_CURRENT_ITEM,
-    payload: currentItem.data,
-  });
-  const similarListItem = yield API.getSimilarListItems(action.itemId);
-  yield put({
-    type: ItemLabelTypes.GET_SIMILAR_LIST_ITEM,
-    payload: similarListItem.data,
-  });
+  const similarListItem: AxiosResponseType<SimilarListItemsType> = yield call(
+    API.getSimilarListItems,
+    action.itemId
+  );
+  yield put(getSimilarListItem(similarListItem.data));
 }
 
-export function* onSearchSagaWorker(action: ReturnType<typeof requestSearchedresults>) {
-  const searchedtItemsByTitle = yield API.fetchSearchedItemsByTitle(
+export function* onSearchSagaWorker(
+  action: ReturnType<typeof requestSearchedresults>
+) {
+  const searchedtItemsByTitle: AxiosResponseType<SearchedItemsByNameTypes> = yield call(
+    API.fetchSearchedItemsByTitle,
     action.payload
   );
 
-  const searchedtItemsByPerson = yield API.fetchSearchedItemsByPerson(
+  const searchedtItemsByPerson: AxiosResponseType<SearchedItemsByPersonTypes> = yield call(
+    API.fetchSearchedItemsByPerson,
     action.payload
   );
-  yield put({
-    type: SearchLabelTypes.GET_SEARCH_RESULT_BY_NAME,
-    payload: searchedtItemsByTitle.data,
-  });
-  yield put({
-    type: SearchLabelTypes.GET_SEARCH_RESULT_BY_PERSON,
-    payload: searchedtItemsByPerson.data,
-  });
+  yield put(getSearchResultByName(searchedtItemsByTitle.data));
+  yield put(getSearchResultByPerson(searchedtItemsByPerson.data));
 }
 
-export function* onSortSagaWorker(action: ReturnType<typeof setSortToReleaseDateGlobal>) {
-  const searchedtItemsByTitle = yield API.fetchSearchedItemsByTitle(
+export function* onSortSagaWorker(
+  action: ReturnType<typeof setSortToReleaseDateGlobal>
+) {
+  const searchedtItemsByTitle: AxiosResponseType<SearchedItemsByNameTypes> = yield API.fetchSearchedItemsByTitle(
     action.payload.searchedValue
   );
 
-  const searchedtItemsByPerson = yield API.fetchSearchedItemsByPerson(
+  const searchedtItemsByPerson: AxiosResponseType<SearchedItemsByPersonTypes> = yield API.fetchSearchedItemsByPerson(
     action.payload.searchedValue
   );
-  yield put({
-    type: SearchLabelTypes.GET_SEARCH_RESULT_BY_NAME,
-    payload: searchedtItemsByTitle.data,
-  });
-  yield put({
-    type: SearchLabelTypes.GET_SEARCH_RESULT_BY_PERSON,
-    payload: searchedtItemsByPerson.data,
-  });
+
+  yield put(getSearchResultByName(searchedtItemsByTitle.data));
+  yield put(getSearchResultByPerson(searchedtItemsByPerson.data));
 }

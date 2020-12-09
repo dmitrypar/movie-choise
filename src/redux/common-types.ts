@@ -15,3 +15,13 @@ export type commonResponseTypes =
   | SimilarListItemsType
   | SearchedItemsByNameTypes
   | SearchedItemsByPersonTypes;
+
+
+  export type AxiosResponseType<T> = {
+    data: T;
+    status: number;
+    statusText: string;
+    headers: {};
+    config: {};
+    request: {};
+  };

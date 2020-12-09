@@ -1,7 +1,8 @@
 import axios, { AxiosPromise, AxiosResponse } from "axios";
+import {CurrentItemTypeResponse} from '../redux/item/types'
 
 
-type axiosResponse = AxiosPromise<
+type axiosResponse = AxiosResponse<
   {method: string
   url: string
   params: {
@@ -20,7 +21,7 @@ export const fetchItemAndSearchData = function (
   page: number | null,
   includeAdult: boolean | null,
   query: string | null
-): axiosResponse {
+): AxiosPromise<any> {
     
   const baseURL = "https://api.themoviedb.org/3/";
   const apiKey = process.env.API_KEY;
@@ -37,3 +38,5 @@ export const fetchItemAndSearchData = function (
     },
   });
 };
+
+

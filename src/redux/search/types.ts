@@ -5,7 +5,7 @@ export type SearchedItemsByNameTypes = {
   total_results: number;
 };
 
-type SearchedResultsByNameTypes = {
+export type SearchedResultsByNameTypes = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: [];

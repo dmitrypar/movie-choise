@@ -1,6 +1,7 @@
+import { AplicationType } from "./../root-reducer";
 import { SimilarListItemsType } from "./types";
 import { createSelector } from "reselect";
-import { AplicationType } from "../root-reducer";
+import { SimilarResultItem } from "./types";
 
 export const getItemData = (state: AplicationType) => {
   return state.currentItemStore.currentItem;
@@ -21,10 +22,15 @@ export const getItemsForSimilar = createSelector(
   }
 );
 
-export const getSimilarSortedItems = createSelector(
+export const getSimilarSortedItems = createSelector<
+  AplicationType,
+  ReturnType<typeof getItemsForSimilar>,
+  boolean,
+  Array<SimilarResultItem>
+>(
   getItemsForSimilar,
   switchResultToSortByDate,
-  (sortItem, modeByDate) => {
+  (sortItem, modeByDate): Array<SimilarResultItem> => {
     let finalSortedItems;
     if (modeByDate) {
       finalSortedItems = sortItemsByField(sortItem, "release_date");

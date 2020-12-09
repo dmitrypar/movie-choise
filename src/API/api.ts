@@ -1,10 +1,9 @@
-import { fetchItemAndSearchData } from "./fetch-config";
+import {  fetchItemAndSearchData } from "./fetch-config";
 
 
 export const API = {
 
   fetchSearchedItemsByTitle(inputSearchValue: string ) {
-    console.log(inputSearchValue)
     return fetchItemAndSearchData(
       "search/", "movie", "", 1, false,
       inputSearchValue 
@@ -34,3 +33,5 @@ export const API = {
     return `http://image.tmdb.org/t/p/w200/${coverImgLink}`;
   },
 };
+
+

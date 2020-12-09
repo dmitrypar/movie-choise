@@ -53,3 +53,5 @@ export type SimilarResultItem = {
 };
 
 export type currentItemReducerTypes = {};
+
+
