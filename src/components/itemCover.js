@@ -1,12 +1,10 @@
-import React from 'react'
-import Logo from './logo'
+import React from "react";
 
-const ItemCover = ({coverImage}) => {
-    return (
-        <div className="itemWrapper">
-           <img className="coverImage" src={coverImage} alt="" />
-        </div>
-    )
-}
 
-export default ItemCover
+export const ItemCover = ({ coverImage }) => {
+  return (
+    <div className="itemWrapper">
+      <img className="coverImage" src={coverImage} alt="" />
+    </div>
+  );
+};

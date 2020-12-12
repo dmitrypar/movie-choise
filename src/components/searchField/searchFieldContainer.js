@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
-import SearchField from "./searchField";
+import { SearchField } from "./searchField";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setSearchSwitch,
-  requestSearchedresults,
-} from "../../redux/search/actions";
+import { requestSearchedresults } from "../../redux/search/actions";
+import { switchResultByTitleOrPerson } from "../../redux/search/selectors";
 
-const SearchFieldContainer = () => {
-  const searchSwitch = useSelector((state) => state.searchedItems.switcher);
+export const SearchFieldContainer = () => {
+  const searchSwitch = useSelector(switchResultByTitleOrPerson);
   const dispatch = useDispatch();
   const { values: inputSearchValue, handleChange, handleSubmit } = useFormik({
     initialValues: {
@@ -33,13 +31,9 @@ const SearchFieldContainer = () => {
   return (
     <SearchField
       searchSwitch={searchSwitch}
-      dispatch={dispatch}
-      setSearchSwitch={setSearchSwitch}
       handleChange={handleChange}
       inputSearchValue={inputSearchValue}
       handleSubmit={handleSubmit}
     />
   );
 };
-
-export default SearchFieldContainer;

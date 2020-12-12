@@ -7,17 +7,21 @@ import { AplicationType } from "./../root-reducer";
 
 import { createSelector } from "reselect";
 
+export const searchedValueSelector = (state: AplicationType) => {
+  return state.searchedItems.searchValue;
+};
+
 const getSearchedResultsByName = (state: AplicationType) => {
   return state.searchedItems.searchResultsByName;
 };
 const getSearchedResultsByPerson = (state: AplicationType) => {
   return state.searchedItems.searchResultsByPerson;
 };
-const switchResultByTitleOrPerson = (state: AplicationType) => {
+export const switchResultByTitleOrPerson = (state: AplicationType) => {
   return state.searchedItems.switcher;
 };
 
-const switchResultToSortByDate = (state: AplicationType) => {
+export const switchResultToSortByDate = (state: AplicationType) => {
   return state.searchedItems.sortByDate;
 };
 
@@ -35,7 +39,8 @@ export const getItemsAfterSearch = createSelector(
       generalRawSearchedResults = resbyname && resbyname.results;
     } else {
       generalRawSearchedResults =
-        resbypreson && resbypreson.results.map((res) => res.known_for[0]);
+        resbypreson.results &&
+        resbypreson.results.map((res) => res.known_for[0]);
     }
 
     return generalRawSearchedResults;
@@ -46,8 +51,8 @@ export const getSearchedAndSortedItems = createSelector<
   AplicationType,
   ReturnType<typeof getItemsAfterSearch>,
   boolean,
-  SearchedResultsByNameTypes[]>
-  (getItemsAfterSearch, switchResultToSortByDate, (sortItem, modeByDate) => {
+  SearchedResultsByNameTypes[]
+>(getItemsAfterSearch, switchResultToSortByDate, (sortItem, modeByDate) => {
   let finalSortedItems;
   if (modeByDate) {
     finalSortedItems = sortItemsByField(sortItem, "release_date");

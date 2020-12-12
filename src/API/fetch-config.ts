@@ -1,42 +1,28 @@
-import axios, { AxiosPromise, AxiosResponse } from "axios";
-import {CurrentItemTypeResponse} from '../redux/item/types'
+import axios, { AxiosPromise } from "axios";
 
 
-type axiosResponse = AxiosResponse<
-  {method: string
-  url: string
-  params: {
-    api_key: string
-    language: string
-    page: number | null
-    include_adult: boolean | null
-    query: string | null
-  }}
-> 
 
 export const fetchItemAndSearchData = function (
-  firstPrefix: string,
-  secondPrefix: string | number,
-  similar: string,
-  page: number | null,
-  includeAdult: boolean | null,
-  query: string | null
+  urlEnd: string,
+  page?: number | null,
+  includeAdult?: boolean | null,
+  query?: string | null
 ): AxiosPromise<any> {
     
-  const baseURL = "https://api.themoviedb.org/3/";
-  const apiKey = process.env.API_KEY;
-
-  return axios({
-    method: "get",
-    url: baseURL + firstPrefix + secondPrefix + similar,
+  const instance = axios.create({
+    baseURL: "https://api.themoviedb.org/3/",
     params: {
-      api_key: apiKey,
+      api_key: process.env.API_KEY,
       language: "en-US",
-      page: page,
+      page,
       include_adult: includeAdult,
-      query: query,
-    },
-  });
+      query,
+    }
+  })
+
+  return instance.get(
+     urlEnd
+  );
 };
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MainItemDetails = ({
+export const MainItemDetails = ({
   linkToFilmPage,
   onItemClickHandler,
   coverImage,
@@ -29,4 +29,4 @@ const MainItemDetails = ({
   );
 };
 
-export default MainItemDetails;
+

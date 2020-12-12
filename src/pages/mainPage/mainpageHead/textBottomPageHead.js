@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextBottomPageHead = ({
+export const TextBottomPageHead = ({
   sortItemSelectorByDate,
   onByReleaseDateClicked,
   sortItemSelectorByrating,
@@ -31,5 +31,3 @@ const TextBottomPageHead = ({
     </div>
   );
 };
-
-export default TextBottomPageHead;

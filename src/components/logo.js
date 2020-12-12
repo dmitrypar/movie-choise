@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const Logo = () => {
+export const Logo = () => {
     return (
         <div className="logo">
             Netflixroulette
@@ -8,4 +8,4 @@ const Logo = () => {
     )
 }
 
-export default Logo
+

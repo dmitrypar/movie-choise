@@ -1,6 +1,6 @@
 export type SearchedItemsByNameTypes = {
   page: number;
-  results: SearchedResultsByNameTypes[];
+  results: SearchedResultsByNameTypes[] 
   total_pages: number;
   total_results: number;
 };
@@ -23,7 +23,7 @@ export type SearchedResultsByNameTypes = {
 
 export type SearchedItemsByPersonTypes = {
   page: number;
-  results: SearchedResultsByPersonTypes[];
+  results: SearchedResultsByPersonTypes[] 
   total_pages: number;
   total_results: number;
 };

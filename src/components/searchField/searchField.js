@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import Logo from "../logo";
+import { Logo } from "../logo";
+import { setSearchSwitch } from "../../redux/search/actions";
+import { useDispatch } from "react-redux";
 
-const SearchField = ({
+export const SearchField = ({
   handleChange,
   inputSearchValue,
   handleSubmit,
   searchSwitch,
-  setSearchSwitch,
-  dispatch
 }) => {
+  const dispatch = useDispatch();
   const sortbyTitle = () => {
     dispatch(setSearchSwitch(true));
   };
@@ -57,5 +58,3 @@ const SearchField = ({
     </form>
   );
 };
-
-export default SearchField;

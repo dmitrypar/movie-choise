@@ -1,18 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSearchedAndSortedItems } from "../../redux/search/selectors";
+import {
+  getSearchedAndSortedItems,
+  switchResultByTitleOrPerson,
+} from "../../redux/search/selectors";
 import { getSimilarSortedItems } from "../../redux/item/selectors";
 import { onCurrentItemSelected } from "../../redux/item/actions";
-import MainItemDetailsContainer from "../../components/mainItemDetails/MainItemDetailsContainer";
+import { MainItemDetailsContainer } from "../../components/mainItemDetails/mainItemDetailsContainer";
 
-const MainPageContent = (props) => {
-  const {
-    isPath
-  } = props;
-  const dispatch = useDispatch()
-  const searchResults = useSelector(getSearchedAndSortedItems)
-  const searchSwitch = useSelector(state=>state.searchedItems.switcher)
-  const similarItems = useSelector(getSimilarSortedItems)
+export const MainPageContent = (props) => {
+  const { isPath } = props;
+  const dispatch = useDispatch();
+  const searchResults = useSelector(getSearchedAndSortedItems);
+  const searchSwitch = useSelector(switchResultByTitleOrPerson);
+  const similarItems = useSelector(getSimilarSortedItems);
   const onItenButtonClick = (id) => {
     dispatch(onCurrentItemSelected(id));
   };
@@ -53,7 +54,3 @@ const MainPageContent = (props) => {
     </div>
   );
 };
-
-
-
-export default MainPageContent

@@ -53,13 +53,9 @@ export function* onSearchSagaWorker(
 export function* onSortSagaWorker(
   action: ReturnType<typeof setSortToReleaseDateGlobal>
 ) {
-  const searchedtItemsByTitle: AxiosResponseType<SearchedItemsByNameTypes> = yield API.fetchSearchedItemsByTitle(
-    action.payload.searchedValue
-  );
+  const searchedtItemsByTitle: AxiosResponseType<SearchedItemsByNameTypes> = yield call (API.fetchSearchedItemsByTitle, action.payload.searchedValue);
 
-  const searchedtItemsByPerson: AxiosResponseType<SearchedItemsByPersonTypes> = yield API.fetchSearchedItemsByPerson(
-    action.payload.searchedValue
-  );
+  const searchedtItemsByPerson: AxiosResponseType<SearchedItemsByPersonTypes> = yield call (API.fetchSearchedItemsByPerson, action.payload.searchedValue);
 
   yield put(getSearchResultByName(searchedtItemsByTitle.data));
   yield put(getSearchResultByPerson(searchedtItemsByPerson.data));

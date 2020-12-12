@@ -1,7 +1,7 @@
 import React from "react";
-import MainPageHead from "./mainpageHead/mainPageHead";
-import MainPageContent from "./mainPageContent";
-import MainPageFooter from "./mainPageFooter";
+import { MainPageHead } from "./mainpageHead/mainPageHead";
+import { MainPageContent } from "./mainPageContent";
+import { MainPageFooter } from "./mainPageFooter";
 
 const MainPage = ({ isPath }) => {
   return (
@@ -11,7 +11,7 @@ const MainPage = ({ isPath }) => {
           <MainPageHead isPath={isPath} />
         </div>
         <div className="pageContent">
-          <MainPageContent isPath={isPath}/>
+          <MainPageContent isPath={isPath} />
         </div>
         <div className="pageFooter">
           <MainPageFooter />

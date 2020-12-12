@@ -1,8 +1,8 @@
 import React from "react";
 import { API } from "../../API/api";
-import MainItemDetails from "./mainItemDetails";
+import { MainItemDetails } from "./mainItemDetails";
 
-const MainItemDetailsContainer = ({ onItenButtonClick, searchSwitch, res }) => {
+export const MainItemDetailsContainer = ({ onItenButtonClick, searchSwitch, res }) => {
   try {
     const linkToFilmPage = `/film/${res.id}`;
     const onItemClickHandler = () => onItenButtonClick(res.id);
@@ -25,4 +25,4 @@ const MainItemDetailsContainer = ({ onItenButtonClick, searchSwitch, res }) => {
   }
 };
 
-export default MainItemDetailsContainer;
+

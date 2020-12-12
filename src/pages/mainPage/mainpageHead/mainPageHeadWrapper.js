@@ -1,32 +1,34 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router";
-import SearchFieldContainer from "../../../components/searchField/searchFieldContainer";
-import ItemDescription from "../../../components/mainItemDetails/itemDescription";
+import { SearchFieldContainer } from "../../../components/searchField/searchFieldContainer";
+import { ItemDescription } from "../../../components/mainItemDetails/itemDescription";
 import { setSortToReleaseDateGlobal } from "../../../redux/search/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { getSearchedAndSortedItems } from "../../../redux/search/selectors";
-import TextBottomPageHead from "./textBottomPageHead";
+import {
+  getSearchedAndSortedItems,
+  switchResultByTitleOrPerson,
+  switchResultToSortByDate,
+  searchedValueSelector,
+} from "../../../redux/search/selectors";
+import { TextBottomPageHead } from "./textBottomPageHead";
 
-const MainPageHeadWrapper = ({
-  isPath
-}) => {
+export const MainPageHeadWrapper = ({ isPath }) => {
+  const sortToDate = useSelector(switchResultToSortByDate);
+  const searchedAndSortedItems = useSelector(getSearchedAndSortedItems);
+  const moviesCount = searchedAndSortedItems && searchedAndSortedItems.length;
+  const searchSwitch = useSelector(switchResultByTitleOrPerson);
+  const searchedValue = useSelector(searchedValueSelector);
 
-  const sortToDate = useSelector(state=>state.searchedItems.sortByDate)
-  const moviesCount = useSelector(state=>getSearchedAndSortedItems(state) && getSearchedAndSortedItems(state).length)
-  const searchSwitch = useSelector(state=>state.searchedItems.switcher)
-  const searchedValue = useSelector(state=>state.searchedItems.searchValue)
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const isSearch = isPath === "/search";
   const isFilm = isPath === "/film/:slug";
 
   const onByReleaseDateClicked = () => {
-    dispatch(setSortToReleaseDateGlobal({sortdate:true, searchedValue:searchedValue}));
-    
+    dispatch(setSortToReleaseDateGlobal({ sortdate: true, searchedValue }));
   };
   const onByRatingClicked = () => {
-    dispatch(setSortToReleaseDateGlobal({sortdate:false, searchedValue:searchedValue}));
+    dispatch(setSortToReleaseDateGlobal({ sortdate: false, searchedValue }));
   };
   const sortItemSelectorByDate = sortToDate
     ? "selectedSortByReleaseDate"
@@ -63,7 +65,3 @@ const MainPageHeadWrapper = ({
     </div>
   );
 };
-
-
-
-export default MainPageHeadWrapper;
