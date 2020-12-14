@@ -6,25 +6,27 @@ import {
 } from "../../redux/search/selectors";
 import { getSimilarSortedItems } from "../../redux/item/selectors";
 import { onCurrentItemSelected } from "../../redux/item/actions";
-import { MainItemDetailsContainer } from "../../components/mainItemDetails/mainItemDetailsContainer";
+import {MainItemDetailsContainer} from "../../components/mainItemDetails/mainItemDetailsContainer";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 
-type PropTypes = {
-  isPath: string;
-};
+type PropTypes = RouteComponentProps
 
-export const MainPageContent: React.FC<PropTypes> = ({ isPath }) => {
+const MainPageContent: React.FC<PropTypes> = ({ match, history }) => {
   const dispatch = useDispatch();
   const searchResults = useSelector(getSearchedAndSortedItems);
   const searchSwitch = useSelector(switchResultByTitleOrPerson);
   const similarItems = useSelector(getSimilarSortedItems);
+
   const onItemButtonClick = (id: number) => {
+    const filmIdPush = (id: number) => history.push(`/film/${id}`);
     dispatch(onCurrentItemSelected(id));
+    filmIdPush(id);
   };
 
   const getResultsToRender = () => {
-    if (isPath === "/search") {
+    if (match.path === "/search") {
       return searchResults;
-    } else if (isPath === "/film/:slug") {
+    } else if (match.path === "/film/:id") {
       return similarItems;
     }
   };
@@ -57,3 +59,5 @@ export const MainPageContent: React.FC<PropTypes> = ({ isPath }) => {
     </div>
   );
 };
+
+export default withRouter(MainPageContent);

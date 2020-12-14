@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router";
+import { Redirect, RouteComponentProps } from "react-router";
 import { SearchFieldContainer } from "../../../components/searchField/searchFieldContainer";
 import { ItemDescription } from "../../../components/mainItemDetails/itemDescription";
 import { setSortToReleaseDateGlobal } from "../../../redux/search/actions";
@@ -11,12 +11,11 @@ import {
   searchedValueSelector,
 } from "../../../redux/search/selectors";
 import { TextBottomPageHead } from "./textBottomPageHead";
+import {withRouter} from 'react-router-dom'
 
-type PropTypes = {
-  isPath: string;
-};
+type PropTypes = RouteComponentProps
 
-export const MainPageHeadWrapper: React.FC<PropTypes> = ({ isPath }) => {
+const MainPageHeadWrapper: React.FC<PropTypes> = ({ match }) => {
   const sortToDate = useSelector(switchResultToSortByDate);
   const searchedAndSortedItems = useSelector(getSearchedAndSortedItems);
   const moviesCount = searchedAndSortedItems && searchedAndSortedItems.length;
@@ -25,8 +24,8 @@ export const MainPageHeadWrapper: React.FC<PropTypes> = ({ isPath }) => {
 
   const dispatch = useDispatch();
 
-  const isSearch: boolean = isPath === "/search";
-  const isFilm = isPath === "/film/:slug";
+  const isSearch: boolean = match.path === "/search";
+  const isFilm = match.path === "/film/:id";
 
   const onByReleaseDateClicked = () => {
     dispatch(setSortToReleaseDateGlobal({ sortdate: true, searchedValue }));
@@ -48,7 +47,7 @@ export const MainPageHeadWrapper: React.FC<PropTypes> = ({ isPath }) => {
           {isSearch && <SearchFieldContainer />}
           {isFilm && <ItemDescription />}
         </div>
-        {isPath === "/" && <Redirect to="/search" />}
+        {match.path === "/" && <Redirect to="/search" />}
       </div>
       <div className="bottomPageHeadWrapper">
         <div className="textBottomPageHeadWrapper">
@@ -69,3 +68,5 @@ export const MainPageHeadWrapper: React.FC<PropTypes> = ({ isPath }) => {
     </div>
   );
 };
+
+export default withRouter(MainPageHeadWrapper)

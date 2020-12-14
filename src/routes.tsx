@@ -7,7 +7,7 @@ export const Routes = () => {
   return (
     <Switch>
       <Route path="/" component={Search} exact />
-      <Route path="/film/:slug" component={Film} />
+      <Route path="/film/:id" component={Film} />
       <Route path="/search" component={Search} />
     </Switch>
   );

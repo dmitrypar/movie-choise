@@ -2,16 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 type PropsTypes = {
-  linkToFilmPage: string;
-  onItemClickHandler: () => void;
-  coverImage: string;
-  itemTitle: string;
-  releaseData: string;
-  popularity: number;
-};
+  onItemClickHandler: ()=> void
+  coverImage: string
+  itemTitle: string
+  releaseData: string
+  popularity: number
+}
 
 export const MainItemDetails: React.FC<PropsTypes> = ({
-  linkToFilmPage,
   onItemClickHandler,
   coverImage,
   itemTitle,
@@ -21,11 +19,11 @@ export const MainItemDetails: React.FC<PropsTypes> = ({
   return (
     <div className="itemWrapper">
       <div className="coverWrapper">
-        <Link to={linkToFilmPage} onClick={onItemClickHandler}>
-          <div className="itemCover">
+     
+          <div className="itemCover" onClick={onItemClickHandler} tabIndex={-1}>
             <img className="coverImage" src={coverImage} alt="" />
           </div>
-        </Link>
+       
       </div>
       <div className="bottomItemTextWrapper">
         <div className="topLineTextItem">
@@ -37,3 +35,5 @@ export const MainItemDetails: React.FC<PropsTypes> = ({
     </div>
   );
 };
+
+

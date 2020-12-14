@@ -1,14 +1,12 @@
 import React from "react";
-import { MainPageHeadWrapper } from "./mainPageHeadWrapper";
+import  MainPageHeadWrapper  from "./mainPageHeadWrapper";
 
-type PropTypes = {
-  isPath: string;
-};
 
-export const MainPageHead: React.FC<PropTypes> = ({ isPath }) => {
+
+export const MainPageHead = () => {
   return (
     <div>
-      <MainPageHeadWrapper isPath={isPath} />
+      <MainPageHeadWrapper  />
     </div>
   );
 };
