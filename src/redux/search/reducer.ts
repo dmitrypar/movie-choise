@@ -7,8 +7,8 @@ export type ItemsState = {
   switcher: boolean;
   searchValue: string;
   sortByDate: boolean;
-  searchResultsByName: SearchedItemsByNameTypes | [];
-  searchResultsByPerson: SearchedItemsByPersonTypes | [];
+  searchResultsByName: SearchedItemsByNameTypes | null;
+  searchResultsByPerson: SearchedItemsByPersonTypes | null;
 };
 
 // initial items state
@@ -16,8 +16,8 @@ const initialItemsState: ItemsState = {
   switcher: true,
   searchValue: "",
   sortByDate: true,
-  searchResultsByName: [],
-  searchResultsByPerson: [],
+  searchResultsByName: null,
+  searchResultsByPerson: null,
 };
 
 export const itemsReducer = (

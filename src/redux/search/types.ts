@@ -19,6 +19,7 @@ export type SearchedResultsByNameTypes = {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  popularity?: number
 };
 
 export type SearchedItemsByPersonTypes = {

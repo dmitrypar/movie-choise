@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { ItemTextDescription } from "./itemTextDescription";
 import { ItemCover } from "../itemCover";
 import { useSelector } from "react-redux";

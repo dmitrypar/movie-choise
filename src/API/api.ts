@@ -9,11 +9,11 @@ export const API = {
     return fetchItemAndSearchData("search/person", 1, false, inputSearchValue);
   },
 
-  getCurrentItem(itemId: string) {
+  getCurrentItem(itemId: number) {
     return fetchItemAndSearchData(`movie/${itemId}`);
   },
 
-  getSimilarListItems(itemId: string) {
+  getSimilarListItems(itemId: number) {
     return fetchItemAndSearchData(`movie/${itemId}/similar`, 1);
   },
 

@@ -1,6 +1,15 @@
 import React from "react";
 
-export const TextBottomPageHead = ({
+type propTypes = {
+  sortItemSelectorByDate: string;
+  onByReleaseDateClicked: () => void;
+  sortItemSelectorByrating: string;
+  onByRatingClicked: () => void;
+  moviesCount: number | null;
+  searchSwitch: boolean;
+};
+
+export const TextBottomPageHead: React.FC<propTypes> = ({
   sortItemSelectorByDate,
   onByReleaseDateClicked,
   sortItemSelectorByrating,

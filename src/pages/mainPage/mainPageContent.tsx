@@ -8,13 +8,16 @@ import { getSimilarSortedItems } from "../../redux/item/selectors";
 import { onCurrentItemSelected } from "../../redux/item/actions";
 import { MainItemDetailsContainer } from "../../components/mainItemDetails/mainItemDetailsContainer";
 
-export const MainPageContent = (props) => {
-  const { isPath } = props;
+type PropTypes = {
+  isPath: string;
+};
+
+export const MainPageContent: React.FC<PropTypes> = ({ isPath }) => {
   const dispatch = useDispatch();
   const searchResults = useSelector(getSearchedAndSortedItems);
   const searchSwitch = useSelector(switchResultByTitleOrPerson);
   const similarItems = useSelector(getSimilarSortedItems);
-  const onItenButtonClick = (id) => {
+  const onItemButtonClick = (id: number) => {
     dispatch(onCurrentItemSelected(id));
   };
 
@@ -38,7 +41,7 @@ export const MainPageContent = (props) => {
               return (
                 <MainItemDetailsContainer
                   key={res.overview || res.title}
-                  onItenButtonClick={onItenButtonClick}
+                  onItemButtonClick={onItemButtonClick}
                   searchSwitch={searchSwitch}
                   res={res}
                 />

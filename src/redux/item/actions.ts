@@ -1,7 +1,7 @@
 import { ItemType, SimilarListItemsType } from "./types";
 import { ItemLabelTypes } from "./action-types";
 
-export const onCurrentItemSelected = (itemId: string) => {
+export const onCurrentItemSelected = (itemId: number) => {
   return { type: ItemLabelTypes.REQUEST_CURRENT_ITEM, itemId };
 };
 

@@ -12,7 +12,11 @@ import {
 } from "../../../redux/search/selectors";
 import { TextBottomPageHead } from "./textBottomPageHead";
 
-export const MainPageHeadWrapper = ({ isPath }) => {
+type PropTypes = {
+  isPath: string;
+};
+
+export const MainPageHeadWrapper: React.FC<PropTypes> = ({ isPath }) => {
   const sortToDate = useSelector(switchResultToSortByDate);
   const searchedAndSortedItems = useSelector(getSearchedAndSortedItems);
   const moviesCount = searchedAndSortedItems && searchedAndSortedItems.length;
@@ -21,7 +25,7 @@ export const MainPageHeadWrapper = ({ isPath }) => {
 
   const dispatch = useDispatch();
 
-  const isSearch = isPath === "/search";
+  const isSearch: boolean = isPath === "/search";
   const isFilm = isPath === "/film/:slug";
 
   const onByReleaseDateClicked = () => {
@@ -48,7 +52,7 @@ export const MainPageHeadWrapper = ({ isPath }) => {
       </div>
       <div className="bottomPageHeadWrapper">
         <div className="textBottomPageHeadWrapper">
-          {isSearch & (moviesCount > 0) ? (
+          {isSearch && moviesCount > 0 ? (
             <TextBottomPageHead
               sortItemSelectorByDate={sortItemSelectorByDate}
               onByReleaseDateClicked={onByReleaseDateClicked}

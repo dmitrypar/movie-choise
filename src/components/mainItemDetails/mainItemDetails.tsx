@@ -1,7 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const MainItemDetails = ({
+type PropsTypes = {
+  linkToFilmPage: string;
+  onItemClickHandler: () => void;
+  coverImage: string;
+  itemTitle: string;
+  releaseData: string;
+  popularity: number;
+};
+
+export const MainItemDetails: React.FC<PropsTypes> = ({
   linkToFilmPage,
   onItemClickHandler,
   coverImage,
@@ -28,5 +37,3 @@ export const MainItemDetails = ({
     </div>
   );
 };
-
-

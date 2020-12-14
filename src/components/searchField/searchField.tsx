@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Logo } from "../logo";
 import { setSearchSwitch } from "../../redux/search/actions";
 import { useDispatch } from "react-redux";
 
-export const SearchField = ({
+type inputSearchValueType = {
+  mainSearchForm: string;
+};
+
+type PropsTypes = {
+  handleChange: (e: ChangeEvent<any>) => void;
+  inputSearchValue: inputSearchValueType;
+  handleSubmit: () => void;
+  searchSwitch: boolean;
+};
+
+export const SearchField: React.FC<PropsTypes> = ({
   handleChange,
   inputSearchValue,
   handleSubmit,

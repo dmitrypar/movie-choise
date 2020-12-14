@@ -39,8 +39,7 @@ export const getItemsAfterSearch = createSelector(
       generalRawSearchedResults = resbyname && resbyname.results;
     } else {
       generalRawSearchedResults =
-        resbypreson.results &&
-        resbypreson.results.map((res) => res.known_for[0]);
+        resbypreson && resbypreson.results.map((res) => res.known_for[0]);
     }
 
     return generalRawSearchedResults;

@@ -4,16 +4,16 @@ import { InferActionCreatorsTypes } from "../common-types";
 import { ItemType, SimilarListItemsType } from "./types";
 
 export type ItemState = {
-  currentItemId: string;
-  currentItem: ItemType | [];
-  similarListItems: SimilarListItemsType | [];
+  currentItemId: number;
+  currentItem: ItemType | null;
+  similarListItems: SimilarListItemsType | null;
 };
 
 // initial item state
 const initialItemState: ItemState = {
-  currentItemId: "",
-  currentItem: [],
-  similarListItems: [],
+  currentItemId: null,
+  currentItem: null,
+  similarListItems: null,
 };
 //todo типизировать экшн
 export const currentItemReducer = (

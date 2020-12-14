@@ -3,7 +3,11 @@ import { MainPageHead } from "./mainpageHead/mainPageHead";
 import { MainPageContent } from "./mainPageContent";
 import { MainPageFooter } from "./mainPageFooter";
 
-const MainPage = ({ isPath }) => {
+type PropTypes = {
+  isPath: string;
+};
+
+export const MainPage: React.FC<PropTypes> = ({ isPath }) => {
   return (
     <div className="mainWrapper">
       <div className="mainContainer">
@@ -20,5 +24,3 @@ const MainPage = ({ isPath }) => {
     </div>
   );
 };
-
-export default MainPage;
