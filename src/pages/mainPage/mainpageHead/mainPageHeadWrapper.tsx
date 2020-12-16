@@ -13,9 +13,9 @@ import {
 import { TextBottomPageHead } from "./textBottomPageHead";
 import {withRouter} from 'react-router-dom'
 
-type PropTypes = RouteComponentProps
+type PropsTypes = RouteComponentProps
 
-const MainPageHeadWrapper: React.FC<PropTypes> = ({ match }) => {
+const MainPageHeadWrapper: React.FC<PropsTypes> = ({ match }) => {
   const sortToDate = useSelector(switchResultToSortByDate);
   const searchedAndSortedItems = useSelector(getSearchedAndSortedItems);
   const moviesCount = searchedAndSortedItems && searchedAndSortedItems.length;

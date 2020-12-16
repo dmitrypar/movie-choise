@@ -1,20 +1,47 @@
-import { fetchItemAndSearchData } from "./fetch-config";
+import axios from "axios";
+
+ const   instance =  axios.create({
+  baseURL: "https://api.themoviedb.org/3/",
+  params: {
+    api_key: process.env.API_KEY,
+    language: "en-US",
+  },
+})
+
 
 export const API = {
-  fetchSearchedItemsByTitle(inputSearchValue: string) {
-    return fetchItemAndSearchData("search/movie", 1, false, inputSearchValue);
+
+
+  fetchSearchedItemsByTitle(query: string) {
+    return instance.get("search/movie", {
+      params: {
+        page: 1,
+        include_adult: false,
+        query,
+      },
+    });
   },
 
-  fetchSearchedItemsByPerson(inputSearchValue: string) {
-    return fetchItemAndSearchData("search/person", 1, false, inputSearchValue);
+  fetchSearchedItemsByPerson(query: string) {
+    return instance.get("search/person", {
+      params: {
+        page: 1,
+        include_adult: false,
+        query,
+      },
+    });
   },
 
   getCurrentItem(itemId: number) {
-    return fetchItemAndSearchData(`movie/${itemId}`);
+    return instance.get(`movie/${itemId}`);
   },
 
   getSimilarListItems(itemId: number) {
-    return fetchItemAndSearchData(`movie/${itemId}/similar`, 1);
+    return instance.get(`movie/${itemId}/similar`, {
+      params: {
+        page: 1,
+      },
+    });
   },
 
   getcoverImage(coverImgLink: string): string {

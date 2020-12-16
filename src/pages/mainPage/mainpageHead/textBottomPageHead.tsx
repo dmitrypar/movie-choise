@@ -1,6 +1,6 @@
 import React from "react";
 
-type propTypes = {
+type PropsTypes = {
   sortItemSelectorByDate: string;
   onByReleaseDateClicked: () => void;
   sortItemSelectorByrating: string;
@@ -9,7 +9,7 @@ type propTypes = {
   searchSwitch: boolean;
 };
 
-export const TextBottomPageHead: React.FC<propTypes> = ({
+export const TextBottomPageHead: React.FC<PropsTypes> = ({
   sortItemSelectorByDate,
   onByReleaseDateClicked,
   sortItemSelectorByrating,

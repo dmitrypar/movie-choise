@@ -9,16 +9,15 @@ export type ItemState = {
   similarListItems: SimilarListItemsType | null;
 };
 
-// initial item state
+
 const initialItemState: ItemState = {
   currentItemId: null,
   currentItem: null,
   similarListItems: null,
 };
-//todo типизировать экшн
+
 export const currentItemReducer = (
   state = initialItemState,
-  //action: ReturnType<InferValueTypes<typeof itemActions>>
   action: InferActionCreatorsTypes<typeof itemActions>
 ): ItemState => {
   switch (action.type) {

@@ -9,9 +9,9 @@ import { onCurrentItemSelected } from "../../redux/item/actions";
 import {MainItemDetailsContainer} from "../../components/mainItemDetails/mainItemDetailsContainer";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
-type PropTypes = RouteComponentProps
+type PropsTypes = RouteComponentProps
 
-const MainPageContent: React.FC<PropTypes> = ({ match, history }) => {
+const MainPageContent: React.FC<PropsTypes> = ({ match, history }) => {
   const dispatch = useDispatch();
   const searchResults = useSelector(getSearchedAndSortedItems);
   const searchSwitch = useSelector(switchResultByTitleOrPerson);
