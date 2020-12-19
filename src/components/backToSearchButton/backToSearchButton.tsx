@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Logo } from "./logo";
+import { Logo } from "../logo/logo";
 
 export const BackToSearchButton = () => {
-  const buttonLabel = "Search";
+  const buttonLabel = "Поиск";
   return (
     <div className="backToSearchButton">
       <Logo />

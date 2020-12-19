@@ -1,25 +1,26 @@
 import axios from "axios";
 
- const   instance =  axios.create({
+const instance = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
   params: {
     api_key: process.env.API_KEY,
     language: "en-US",
   },
-})
+});
+
 
 
 export const API = {
-
-
   fetchSearchedItemsByTitle(query: string) {
-    return instance.get("search/movie", {
-      params: {
-        page: 1,
-        include_adult: false,
-        query,
-      },
-    });
+    return instance
+      .get("search/movie", {
+        params: {
+          page: 1,
+          include_adult: false,
+          query,
+        },
+      })
+     
   },
 
   fetchSearchedItemsByPerson(query: string) {

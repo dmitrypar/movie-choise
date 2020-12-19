@@ -57,7 +57,7 @@ module.exports = {
     extensions: [ '.tsx', '.ts', '.js' ],
   },
   plugins: [
-    new HtmlWebPackPlugin({ template: "./src/index.html" }),
+    new HtmlWebPackPlugin({ template: "./src/index.html", inject: false }),
     new Dotenv(),
   ],
 };

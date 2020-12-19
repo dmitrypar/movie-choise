@@ -1,5 +1,5 @@
 import React from "react";
-import { ItemType } from "../../redux/item/types";
+import { ItemType } from "../../../redux/item/types";
 
 type PropsTypes = {
   itemDetails: ItemType;

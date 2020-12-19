@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Redirect, RouteComponentProps } from "react-router";
 import { SearchFieldContainer } from "../../../components/searchField/searchFieldContainer";
-import { ItemDescription } from "../../../components/mainItemDetails/itemDescription";
+import { ItemDescription } from "../../../components/mainItemDetails/itemDescription/itemDescription";
 import { setSortToReleaseDateGlobal } from "../../../redux/search/actions";
 import { useDispatch, useSelector } from "react-redux";
 import {

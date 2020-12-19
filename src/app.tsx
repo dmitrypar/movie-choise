@@ -1,17 +1,21 @@
-import * as React from "react";
+import React from "react";
 import "./style/style.scss";
-import * as ReactDOM from "react-dom";
+import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes } from "./routes";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import { ErrorBoundry } from "./components/error-boundry/error-boundry";
 
 const App: React.FC = () => (
   <Provider store={store}>
     <Router>
-      <Routes />
+      <ErrorBoundry>
+        <Routes />
+      </ErrorBoundry>
     </Router>
   </Provider>
 );
+
 
 ReactDOM.render(<App />, document.getElementById("root"));

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { requestSearchedresults } from "../../redux/search/actions";
 import { switchResultByTitleOrPerson } from "../../redux/search/selectors";
 
+
 export const SearchFieldContainer = () => {
   const searchSwitch = useSelector(switchResultByTitleOrPerson);
   const dispatch = useDispatch();
@@ -18,14 +19,11 @@ export const SearchFieldContainer = () => {
     },
   });
   const searchApiSwitcher = () => {
-    if (searchSwitch) {
       dispatch(requestSearchedresults(inputSearchValue.mainSearchForm));
-    } else {
-      dispatch(requestSearchedresults(inputSearchValue.mainSearchForm));
-    }
   };
   useEffect(() => {
-    inputSearchValue.mainSearchForm && searchApiSwitcher();
+    inputSearchValue.mainSearchForm && searchApiSwitcher()
+    
   }, [inputSearchValue.mainSearchForm]);
 
   return (

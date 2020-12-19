@@ -1,7 +1,7 @@
 import React from "react";
-import { MainPageHead } from "./mainpageHead/mainPageHead";
-import  MainPageContent  from "./mainPageContent";
-import { MainPageFooter } from "./mainPageFooter";
+import { MainPageHead } from "../mainpageHead/mainPageHead";
+import  MainPageContent  from "../mainPageContent/mainPageContent";
+import { MainPageFooter } from "../mainPageFooter/mainPageFooter";
 
 
 

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
-import { Logo } from "../logo";
+import { Logo } from "../logo/logo";
 import { setSearchSwitch } from "../../redux/search/actions";
 import { useDispatch } from "react-redux";
 

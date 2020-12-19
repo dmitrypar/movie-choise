@@ -1,3 +1,4 @@
+import { handleErrors } from "./../components/error-boundry/error-service";
 import {
   SearchedItemsByNameTypes,
   SearchedItemsByPersonTypes,
@@ -21,42 +22,60 @@ import { API } from "../API/api";
 export function* onItemChoeseSagaWorker(
   action: ReturnType<typeof onCurrentItemSelected>
 ) {
-  const currentItem: AxiosResponseType<ItemType> = yield call(
-    API.getCurrentItem,
-    action.itemId
-  );
-  yield put(saveCurrentItem(currentItem.data));
+  try {
+    const currentItem: AxiosResponseType<ItemType> = yield call(
+      API.getCurrentItem,
+      action.itemId
+    );
+    yield put(saveCurrentItem(currentItem.data));
 
-  const similarListItem: AxiosResponseType<SimilarListItemsType> = yield call(
-    API.getSimilarListItems,
-    action.itemId
-  );
-  yield put(getSimilarListItem(similarListItem.data));
+    const similarListItem: AxiosResponseType<SimilarListItemsType> = yield call(
+      API.getSimilarListItems,
+      action.itemId
+    );
+    yield put(getSimilarListItem(similarListItem.data));
+  } catch (error) {
+    handleErrors(error);
+  }
 }
 
 export function* onSearchSagaWorker(
   action: ReturnType<typeof requestSearchedresults>
 ) {
-  const searchedtItemsByTitle: AxiosResponseType<SearchedItemsByNameTypes> = yield call(
-    API.fetchSearchedItemsByTitle,
-    action.payload
-  );
+  try {
+    const searchedtItemsByTitle: AxiosResponseType<SearchedItemsByNameTypes> = yield call(
+      API.fetchSearchedItemsByTitle,
+      action.payload
+    );
 
-  const searchedtItemsByPerson: AxiosResponseType<SearchedItemsByPersonTypes> = yield call(
-    API.fetchSearchedItemsByPerson,
-    action.payload
-  );
-  yield put(getSearchResultByName(searchedtItemsByTitle.data));
-  yield put(getSearchResultByPerson(searchedtItemsByPerson.data));
+    const searchedtItemsByPerson: AxiosResponseType<SearchedItemsByPersonTypes> = yield call(
+      API.fetchSearchedItemsByPerson,
+      action.payload
+    );
+    yield put(getSearchResultByName(searchedtItemsByTitle.data));
+    yield put(getSearchResultByPerson(searchedtItemsByPerson.data));
+  } catch (error) {
+    handleErrors(error);
+  }
 }
 
 export function* onSortSagaWorker(
   action: ReturnType<typeof setSortToReleaseDateGlobal>
 ) {
-  const searchedtItemsByTitle: AxiosResponseType<SearchedItemsByNameTypes> = yield call (API.fetchSearchedItemsByTitle, action.payload.searchedValue);
+  try {
+    const searchedtItemsByTitle: AxiosResponseType<SearchedItemsByNameTypes> = yield call(
+      API.fetchSearchedItemsByTitle,
+      action.payload.searchedValue
+    );
 
-  const searchedtItemsByPerson: AxiosResponseType<SearchedItemsByPersonTypes> = yield call (API.fetchSearchedItemsByPerson, action.payload.searchedValue);
+    const searchedtItemsByPerson: AxiosResponseType<SearchedItemsByPersonTypes> = yield call(
+      API.fetchSearchedItemsByPerson,
+      action.payload.searchedValue
+    );
 
-  yield put(getSearchResultByName(searchedtItemsByTitle.data));
-  yield put(getSearchResultByPerson(searchedtItemsByPerson.data));
+    yield put(getSearchResultByName(searchedtItemsByTitle.data));
+    yield put(getSearchResultByPerson(searchedtItemsByPerson.data));
+  } catch (error) {
+    handleErrors(error);
+  }
 }

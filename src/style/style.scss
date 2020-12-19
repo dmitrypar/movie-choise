@@ -1,18 +1,20 @@
 // <<mainPage>>
-@import "../pages/mainPage/mainPage.scss";
+@import "../pages/mainPage/mainPageWrapper/mainPageWrapper.scss";
 
 // <<components>>
 
+//error-indicator
+@import "../components/error-boundry/error-indicator/error-indicator.scss";
 //backToSearchButton
-@import "../components/backToSearchButton.scss";
+@import "../components/backToSearchButton/backToSearchButton.scss";
 //itemCover
-@import "../components/itemCover.scss";
+@import "../components/itemCover/itemCover.scss";
 //searchField
 @import "../components/searchField/searchField.scss";
 //logo
-@import "../components/logo.scss";
+@import "../components/logo/logo.scss";
 //itemDescription
-@import "../components/mainItemDetails/itemDescription";
+@import "../components/mainItemDetails/itemDescription/itemDescription";
 
 // <<common>>
 $white-color-text: rgb(207, 211, 214);

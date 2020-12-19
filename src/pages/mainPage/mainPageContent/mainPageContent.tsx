@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getSearchedAndSortedItems,
   switchResultByTitleOrPerson,
-} from "../../redux/search/selectors";
-import { getSimilarSortedItems } from "../../redux/item/selectors";
-import { onCurrentItemSelected } from "../../redux/item/actions";
-import {MainItemDetailsContainer} from "../../components/mainItemDetails/mainItemDetailsContainer";
+} from "../../../redux/search/selectors";
+import { getSimilarSortedItems } from "../../../redux/item/selectors";
+import { onCurrentItemSelected } from "../../../redux/item/actions";
+import {MainItemDetailsContainer} from "../../../components/mainItemDetails/mainItemDetails/mainItemDetailsContainer";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
 type PropsTypes = RouteComponentProps
@@ -32,7 +32,7 @@ const MainPageContent: React.FC<PropsTypes> = ({ match, history }) => {
   };
 
   const finalResultsToRenderItems = getResultsToRender();
-  const noItemsSearched = "No films Found";
+  const noItemsSearched = "Вернись к поиску и попробуй снова";
   return (
     <div className="mainPageContentWrapper">
       <div className="searchResultContainer">
