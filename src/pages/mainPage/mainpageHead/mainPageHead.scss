@@ -1,3 +1,5 @@
+@import "../../../style/variables";
+
 .wrapperContainer {
   display: flex;
   justify-content: center;
@@ -21,7 +23,9 @@
 .textBottomPageHead {
   display: flex;
   justify-content: space-between;
+  width: $center-block-width;
 }
+
 
 .rightTextBottomPageHead{
     display: flex;
@@ -31,4 +35,10 @@
 
 .valueFoundLeftTextBottonPageHead{
     margin-right: 0.5em;
+}
+
+.selectedSortByReleaseDate,
+.selectedSortByRating {
+  color: $red-color-text;
+  font-weight: 900;
 }

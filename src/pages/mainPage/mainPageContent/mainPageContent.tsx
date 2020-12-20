@@ -32,7 +32,7 @@ const MainPageContent: React.FC<PropsTypes> = ({ match, history }) => {
   };
 
   const finalResultsToRenderItems = getResultsToRender();
-  const noItemsSearched = "Вернись к поиску и попробуй снова";
+  const noItemsSearched = "Воспользуйся поиском - найди фильм";
   return (
     <div className="mainPageContentWrapper">
       <div className="searchResultContainer">

@@ -1,11 +1,17 @@
 @import '../mainpageHead/mainPageHead.scss';
 @import '../mainPageContent/mainPageContent.scss';
 @import '../mainPageFooter/mainPageFooter.scss';
-
+@import "../../../style/variables";
 
 
 .mainContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: $main-block-width;
 }
+
+.mainWrapper {
+    display: flex;
+    justify-content: center;
+  }

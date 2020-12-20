@@ -1,0 +1,10 @@
+
+@import "variables.scss";
+
+%button {
+    color: $white-color-text;
+    border: none;
+    border-radius: 0.2em;
+    margin: 2em 0em 1em 1em;
+    padding: 1em 1em 1em 1em;
+  }

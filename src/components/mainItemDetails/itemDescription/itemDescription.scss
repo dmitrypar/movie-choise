@@ -1,19 +1,27 @@
+
+@import "../../../style/variables";
+
 .itemDescription {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
+
+
 .itemTextDescription {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin: 0.035 * $main-block-width;
 }
 
 /// mainItemDetails
 .itemWrapper {
   display: flex;
   flex-direction: column;
+  width: 0.25 * $main-block-width;
+  margin: 0.035 * $main-block-width;
 }
 
 .bottomItemTextWrapper {
@@ -29,11 +37,11 @@
 }
 
 .releaseData {
-  border: solid 1px black;
   padding: 0.15em 0.5em 0.15em 0.5em;
   max-height: 1.2em;
   font-size: 1em;
   margin-top: -0.3em;
+  border: solid 1px $black-color;
 }
 
 .backToSearchButton {
@@ -56,11 +64,14 @@
 .budget {
   margin-bottom: 1em;
   font-size: 2em;
+  color: $white-color-text;
 }
+
 
 .itemDetailsTitle {
   font-size: 3em;
   font-weight: 900;
+  color: $red-color-text;
 }
 
 .releaseDateItem,
@@ -90,4 +101,8 @@
   display: flex;
   align-items: center;
   margin-bottom: 1em;
+}
+
+.itemCover {
+  min-height: 0.4 * $main-block-width;
 }

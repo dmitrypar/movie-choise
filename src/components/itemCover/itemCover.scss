@@ -1,4 +1,10 @@
 
+@import "../../style/variables";
 
 
 
+
+  .coverImage {
+    width: 0.25 * $main-block-width;
+    height: 0.4 * $main-block-width;
+  }

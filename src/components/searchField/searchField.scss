@@ -1,19 +1,38 @@
+@import "../../style/variables";
+@import "../../style/templates";
+
 .searchPanel {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
+.searchAnotation,
+.searchBy {
+  color: $white-color-text;
+}
+
+
 .searchField {
   margin: 1em 0 1em 0;
+  width: $center-block-width;
 }
+
 
 .searchField input {
 
   border: none;
   border-bottom-style: solid;
   background-color: rgb(15, 15, 15);
+  border-color: $red-color-text;
+  color: $white-color-text;
+  margin-top: 3em;
+  padding: 1em 1em 1em;
+  height: 40px;
+  min-width: 100%;
+  box-sizing: border-box;
 }
+
 
 .sortByGroupeButtons {
   display: flex;
@@ -25,4 +44,23 @@
 .titleButton {
   margin-right: 2em;
   align-self:center
+}
+
+
+.searchButton,
+.sortByTitleButton,
+.sortByDirectorButton {
+  @extend %button;
+  background-color: $grey-color;
+}
+
+.sortByTitleButtonChosed,
+.sortByDirectorButtonChosed {
+  @extend %button;
+  background-color: $red-color-text;
+}
+
+.searchButton {
+  background-color: $red-color-text;
+  padding: 1em 2em 1em 2em;
 }
