@@ -23,7 +23,10 @@
 .textBottomPageHead {
   display: flex;
   justify-content: space-between;
-  width: $center-block-width;
+  padding: 0 0.17 * $center-block-width 0 0.17 * $center-block-width;
+}
+.textBottomPageHeadWrapper{
+  width: 100%;
 }
 
 
@@ -41,4 +44,8 @@
 .selectedSortByRating {
   color: $red-color-text;
   font-weight: 900;
+}
+
+.sortByReleaseDate, .sortByRating {
+  margin-left: 0.01 * $center-block-width;
 }

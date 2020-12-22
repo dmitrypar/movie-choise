@@ -1,16 +1,14 @@
 @import "../../../style/variables";
 
+.mainPageContentWrapper{
+  display: flex;
+  justify-content: center;
+}
+
 .searchResultContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: $main-block-width;
+  max-width: $main-block-width;
 }
-.noItemsSearched{
-  font-size:5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 150px 0 250px 0;
-  color: $grey-color;
-}
+

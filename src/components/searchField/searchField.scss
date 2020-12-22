@@ -1,7 +1,18 @@
 @import "../../style/variables";
 @import "../../style/templates";
 
+@media (min-width: 520px) {
+  .sortByGroupeButtons {
+    display: flex;
+    align-items: center;
+    orientation: column;
+  
+  }
+
+}
+
 .searchPanel {
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -34,15 +45,10 @@
 }
 
 
-.sortByGroupeButtons {
-  display: flex;
-  align-items: center;
-
-}
 
 .searchBy,
 .titleButton {
-  margin-right: 2em;
+  margin-right: 1vm;
   align-self:center
 }
 
@@ -64,3 +70,4 @@
   background-color: $red-color-text;
   padding: 1em 2em 1em 2em;
 }
+

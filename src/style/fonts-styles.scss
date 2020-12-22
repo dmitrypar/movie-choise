@@ -11,3 +11,74 @@
   color: $black-color;
   font-weight: 900;
 }
+
+.selectedSortByReleaseDate,
+.selectedSortByRating {
+  color: $red-color-text;
+  font-weight: 900;
+}
+
+
+.releaseData,
+.popularity,
+.itemTitle
+{
+  font-size: 1rem;
+}
+
+.releaseData {
+  padding: 0.15rem 0.5rem 0.15rem 0.5rem;
+  max-height: 1.2rem;
+  font-size: 1rem;
+  margin-top: -0.3vw;
+  border: solid 1px $black-color;
+}
+
+.noItemsSearched{
+  font-size: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 150px 0 250px 0;
+  color: $grey-color;
+}
+
+.popularityItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(13, 245, 52);
+  padding: 1vw;
+  border-radius: 6vw;
+  border: 1px solid rgb(13, 245, 52);
+  margin-left: 1vw;
+  max-width: 1.5vw;
+  max-height: 1.5vw;
+  font-size: 1vw;
+}
+
+.releaseDateItem,
+.tagLine,
+.overview,
+.budget {
+  margin-bottom: 1%;
+  font-size: 1.5rem;
+  color: $white-color-text;
+}
+
+
+.itemDetailsTitle {
+  font-size: 2vw;
+  font-weight: 900;
+  color: $red-color-text;
+}
+
+.releaseDateItem,
+.budget {
+  font-weight: 100;
+  font-size: 1.5vw;
+}
+
+.tagLine {
+  font-weight: 900;
+}
