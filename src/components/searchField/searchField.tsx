@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from "react";
 import { Logo } from "../logo/logo";
 import { setSearchSwitch } from "../../redux/search/actions";
 import { useDispatch } from "react-redux";
+import styles from '../../styles/main.module.scss'
 
 type inputSearchValueType = {
   mainSearchForm: string;
@@ -28,11 +29,11 @@ export const SearchField: React.FC<PropsTypes> = ({
     dispatch(setSearchSwitch(false));
   };
   return (
-    <form className="searchField" onSubmit={handleSubmit}>
-      <div className="logo">
+    <form className={styles.searchField} onSubmit={handleSubmit}>
+      <div className={styles.logo}>
         <Logo />
       </div>
-      <div className="searchAnotation">FIND YOUR MOVIE</div>
+      <div className={styles.searchAnotation}>FIND YOUR MOVIE</div>
       <input
         type="text"
         placeholder="Search..."
@@ -40,13 +41,13 @@ export const SearchField: React.FC<PropsTypes> = ({
         onChange={handleChange}
         name="mainSearchForm"
       />
-      <div className="searchPanel">
-        <div className="sortByGroupeButtons">
-          <div className="searchBy">SEARCH BY</div>
+      <div className={styles.searchPanel}>
+        <div className={styles.sortByGroupeButtons}>
+          <div className={styles.searchBy}>SEARCH BY</div>
           <div
             onClick={sortbyTitle}
             className={
-              searchSwitch ? "sortByTitleButtonChosed" : "sortByTitleButton"
+              searchSwitch ? styles.sortByTitleButtonChosed : styles.sortByTitleButton
             }
           >
             TITLE
@@ -55,14 +56,14 @@ export const SearchField: React.FC<PropsTypes> = ({
             onClick={sortbyPerson}
             className={
               searchSwitch
-                ? "sortByDirectorButton"
-                : "sortByDirectorButtonChosed"
+                ? styles.sortByDirectorButton
+                : styles.sortByDirectorButtonChosed
             }
           >
             DIRECTOR
           </div>
         </div>
-        <button type="submit" className="searchButton">
+        <button type="submit" className={styles.searchButton}>
           SEARCH
         </button>
       </div>

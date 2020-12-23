@@ -2,20 +2,21 @@ import React from "react";
 import { MainPageHead } from "../mainpageHead/mainPageHead";
 import  MainPageContent  from "../mainPageContent/mainPageContent";
 import { MainPageFooter } from "../mainPageFooter/mainPageFooter";
+ import styles from '../../../styles/main.module.scss'
 
 
 
 export const MainPage = () => {
   return (
-    <div className="mainWrapper">
-      <div className="mainContainer">
-        <div className="pageHead">
+    <div className={styles.mainWrapper}>
+      <div className={styles.mainContainer}>
+        <div className={'pageHead'}>
           <MainPageHead  />
         </div>
-        <div className="pageContent">
+        <div className={'pageContent'}>
           <MainPageContent  />
         </div>
-        <div className="pageFooter">
+        <div className={'pageFooter'}>
           <MainPageFooter />
         </div>
       </div>

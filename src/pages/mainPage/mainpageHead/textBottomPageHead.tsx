@@ -1,4 +1,5 @@
 import React from "react";
+import styles from '../../../styles/main.module.scss'
 
 type PropsTypes = {
   sortItemSelectorByDate: string;
@@ -18,13 +19,13 @@ export const TextBottomPageHead: React.FC<PropsTypes> = ({
   searchSwitch,
 }) => {
   return (
-    <div className="textBottomPageHead">
-      <div className="leftTextBottomPageHead">
-        <span className="valueFoundLeftTextBottonPageHead">{moviesCount}</span>
-        <span className="titleLeftTextBottonPageHead">movies found</span>
+    <div className={styles.textBottomPageHead}>
+      <div className={styles.leftTextBottomPageHead}>
+        <span className={styles.valueFoundLeftTextBottonPageHead}>{moviesCount}</span>
+        <span className={'titleLeftTextBottonPageHead'}>movies found</span>
       </div>
-      <div className="rightTextBottomPageHead">
-        <div className="sortBlock">Sort by</div>
+      <div className={styles.rightTextBottomPageHead}>
+        <div className={styles.sortBlock}>Sort by</div>
         <div
           className={sortItemSelectorByDate}
           onClick={onByReleaseDateClicked}

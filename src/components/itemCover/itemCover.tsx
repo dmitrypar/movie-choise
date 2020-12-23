@@ -1,4 +1,5 @@
 import React from "react";
+import styles from '../../styles/main.module.scss'
 
 type PropsTypes = {
   coverImage: string;
@@ -6,8 +7,8 @@ type PropsTypes = {
 
 export const ItemCover: React.FC<PropsTypes> = ({ coverImage }) => {
   return (
-    <div className="itemWrapper">
-      <img className="coverImage" src={coverImage} alt="" />
+    <div className={styles.itemWrapper}>
+      <img className={styles.coverImage} src={coverImage} alt="" />
     </div>
   );
 };

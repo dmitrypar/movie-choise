@@ -8,6 +8,7 @@ import { getSimilarSortedItems } from "../../../redux/item/selectors";
 import { onCurrentItemSelected } from "../../../redux/item/actions";
 import {MainItemDetailsContainer} from "../../../components/mainItemDetails/mainItemDetails/mainItemDetailsContainer";
 import { RouteComponentProps, withRouter } from "react-router-dom";
+import styles from '../../../styles/main.module.scss'
 
 type PropsTypes = RouteComponentProps
 
@@ -34,8 +35,8 @@ const MainPageContent: React.FC<PropsTypes> = ({ match, history }) => {
   const finalResultsToRenderItems = getResultsToRender();
   const noItemsSearched = "Воспользуйся поиском - найди фильм";
   return (
-    <div className="mainPageContentWrapper">
-      <div className="searchResultContainer">
+    <div className={styles.mainPageContentWrapper}>
+      <div className={styles.searchResultContainer}>
         {finalResultsToRenderItems && finalResultsToRenderItems.length > 0 ? (
           finalResultsToRenderItems &&
           finalResultsToRenderItems.map((res) => {
@@ -53,7 +54,7 @@ const MainPageContent: React.FC<PropsTypes> = ({ match, history }) => {
             }
           })
         ) : (
-          <div className="noItemsSearched">{noItemsSearched}</div>
+          <div className={styles.noItemsSearched}>{noItemsSearched}</div>
         )}
       </div>
     </div>

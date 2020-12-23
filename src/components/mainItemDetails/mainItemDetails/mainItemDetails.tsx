@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styles from '../../../styles/main.module.scss'
 
 type PropsTypes = {
   onItemClickHandler: ()=> void
@@ -17,20 +18,20 @@ export const MainItemDetails: React.FC<PropsTypes> = ({
   popularity,
 }) => {
   return (
-    <div className="itemWrapper">
-      <div className="coverWrapper">
+    <div className={styles.itemWrapper}>
+      <div className={'coverWrapper'}>
      
-          <div className="itemCover" onClick={onItemClickHandler} tabIndex={-1}>
-            <img className="coverImage" src={coverImage} alt="" />
+          <div className={styles.itemCover} onClick={onItemClickHandler} tabIndex={-1}>
+            <img className={styles.coverImage} src={coverImage} alt="" />
           </div>
        
       </div>
-      <div className="bottomItemTextWrapper">
-        <div className="topLineTextItem">
-          <div className="itemTitle">{itemTitle}</div>
-          <div className="releaseData">{releaseData}</div>
+      <div className={styles.bottomItemTextWrapper}>
+        <div className={styles.topLineTextItem}>
+          <div className={styles.itemTitle}>{itemTitle}</div>
+          <div className={styles.releaseData}>{releaseData}</div>
         </div>
-        <div className="popularity">{popularity}</div>
+        <div className={styles.popularity}>{popularity}</div>
       </div>
     </div>
   );

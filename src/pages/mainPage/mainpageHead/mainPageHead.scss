@@ -1,4 +1,4 @@
-@import "../../../style/variables";
+@import "../../../styles/variables";
 
 .wrapperContainer {
   display: flex;
@@ -48,4 +48,8 @@
 
 .sortByReleaseDate, .sortByRating {
   margin-left: 0.01 * $center-block-width;
+}
+
+.canSee{
+  margin-left: 2vw;
 }

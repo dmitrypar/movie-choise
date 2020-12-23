@@ -12,6 +12,7 @@ import {
 } from "../../../redux/search/selectors";
 import { TextBottomPageHead } from "./textBottomPageHead";
 import {withRouter} from 'react-router-dom'
+import styles from '../../../styles/main.module.scss'
 
 type PropsTypes = RouteComponentProps
 
@@ -34,23 +35,23 @@ const MainPageHeadWrapper: React.FC<PropsTypes> = ({ match }) => {
     dispatch(setSortToReleaseDateGlobal({ sortdate: false, searchedValue }));
   };
   const sortItemSelectorByDate = sortToDate
-    ? "selectedSortByReleaseDate"
-    : "sortByReleaseDate";
+    ? styles.selectedSortByReleaseDate
+    : styles.sortByReleaseDate;
   const sortItemSelectorByrating = sortToDate
-    ? "sortByRating"
-    : "selectedSortByRating";
+    ? styles.sortByRating
+    : styles.selectedSortByRating;
 
   return (
-    <div className="topPagehead">
-      <div className="topPageHeadBackgroundImg">
-        <div className="wrapperContainer">
+    <div className={'topPagehead'}>
+      <div className={styles.topPageHeadBackgroundImg}>
+        <div className={styles.wrapperContainer}>
           {isSearch && <SearchFieldContainer />}
           {isFilm && <ItemDescription />}
         </div>
         {match.path === "/" && <Redirect to="/search" />}
       </div>
-      <div className="bottomPageHeadWrapper">
-        <div className="textBottomPageHeadWrapper">
+      <div className={styles.bottomPageHeadWrapper}>
+        <div className={styles.textBottomPageHeadWrapper}>
           {isSearch && moviesCount > 0 ? (
             <TextBottomPageHead
               sortItemSelectorByDate={sortItemSelectorByDate}
@@ -61,7 +62,7 @@ const MainPageHeadWrapper: React.FC<PropsTypes> = ({ match }) => {
               searchSwitch={searchSwitch}
             />
           ) : isFilm ? (
-            <div className="canSee">You can see also</div>
+            <div className={styles.canSee}>You can see also</div>
           ) : null}
         </div>
       </div>
