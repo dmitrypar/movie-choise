@@ -21,14 +21,12 @@ export const MainItemDetailsContainer: React.FC<PropsTypes> = ({
   const releaseData = release_date && release_date.slice(0, 4);
   const popularityValue = searchSwitch ? popularity : null;
   return (
-    
-      <MainItemDetails
-        onItemClickHandler={onItemClickHandler}
-        coverImage={coverImage}
-        itemTitle={itemTitle}
-        releaseData={releaseData}
-        popularity={popularityValue}
-      />
-    
+    <MainItemDetails
+      onItemClickHandler={onItemClickHandler}
+      coverImage={coverImage}
+      itemTitle={itemTitle}
+      releaseData={releaseData}
+      popularity={popularityValue}
+    />
   );
 };

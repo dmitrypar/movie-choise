@@ -27,6 +27,6 @@ export const setSortToReleaseDateGlobal = ({
 }: SortedDataType) => {
   return {
     type: SearchLabelTypes.SET_SORT_BY_DATE,
-    payload: { sortdate: sortdate, searchedValue: searchedValue },
+    payload: { sortdate, searchedValue },
   };
 };

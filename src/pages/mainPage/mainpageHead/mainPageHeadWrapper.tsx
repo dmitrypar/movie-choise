@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+/* eslint-disable no-nested-ternary */
+/* eslint-disable import/no-default-export */
+import React from "react";
 import { Redirect, RouteComponentProps } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { SearchFieldContainer } from "../../../components/searchField/searchFieldContainer";
 import { ItemDescription } from "../../../components/mainItemDetails/itemDescription/itemDescription";
 import { setSortToReleaseDateGlobal } from "../../../redux/search/actions";
-import { useDispatch, useSelector } from "react-redux";
 import {
   getSearchedAndSortedItems,
   switchResultByTitleOrPerson,
@@ -11,10 +14,9 @@ import {
   searchedValueSelector,
 } from "../../../redux/search/selectors";
 import { TextBottomPageHead } from "./textBottomPageHead";
-import {withRouter} from 'react-router-dom'
-import styles from '../../../styles/main.module.scss'
+import styles from "../../../styles/main.module.scss";
 
-type PropsTypes = RouteComponentProps
+type PropsTypes = RouteComponentProps;
 
 const MainPageHeadWrapper: React.FC<PropsTypes> = ({ match }) => {
   const sortToDate = useSelector(switchResultToSortByDate);
@@ -42,7 +44,7 @@ const MainPageHeadWrapper: React.FC<PropsTypes> = ({ match }) => {
     : styles.selectedSortByRating;
 
   return (
-    <div className={'topPagehead'}>
+    <div className="topPagehead">
       <div className={styles.topPageHeadBackgroundImg}>
         <div className={styles.wrapperContainer}>
           {isSearch && <SearchFieldContainer />}
@@ -70,4 +72,4 @@ const MainPageHeadWrapper: React.FC<PropsTypes> = ({ match }) => {
   );
 };
 
-export default withRouter(MainPageHeadWrapper)
+export default withRouter(MainPageHeadWrapper);

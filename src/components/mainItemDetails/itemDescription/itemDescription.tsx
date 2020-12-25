@@ -1,11 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { ItemTextDescription } from "./itemTextDescription";
 import { ItemCover } from "../../itemCover/itemCover";
-import { useSelector } from "react-redux";
 import { API } from "../../../API/api";
 import { BackToSearchButton } from "../../backToSearchButton/backToSearchButton";
 import { getItemData } from "../../../redux/item/selectors";
-import styles from '../../../styles/main.module.scss'
+import styles from "../../../styles/main.module.scss";
 
 export const ItemDescription = () => {
   const itemDetails = useSelector(getItemData);
@@ -13,8 +13,7 @@ export const ItemDescription = () => {
   return (
     <div className={styles.itemDescription}>
       <BackToSearchButton />
-      {itemDetails &&
-       (
+      {itemDetails && (
         <div className={styles.itemContentBlock}>
           <ItemCover coverImage={coverImage} />
           <ItemTextDescription itemDetails={itemDetails} />

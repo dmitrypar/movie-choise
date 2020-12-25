@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const Dotenv = require("dotenv-webpack");

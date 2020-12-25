@@ -1,11 +1,10 @@
+import { createSelector } from "reselect";
 import {
   SearchedItemsByNameTypes,
   SearchedItemsByPersonTypes,
   SearchedResultsByNameTypes,
 } from "./types";
-import { AplicationType } from "./../root-reducer";
-
-import { createSelector } from "reselect";
+import { AplicationType } from "../root-reducer";
 
 export const searchedValueSelector = (state: AplicationType) => {
   return state.searchedItems.searchValue;
@@ -46,6 +45,13 @@ export const getItemsAfterSearch = createSelector(
   }
 );
 
+const sortItemsByField = (itemsToSort: any[], fieldName: string) => {
+  return (
+    itemsToSort &&
+    itemsToSort.sort((a, b) => (a[fieldName] > b[fieldName] ? 1 : -1))
+  );
+};
+
 export const getSearchedAndSortedItems = createSelector<
   AplicationType,
   ReturnType<typeof getItemsAfterSearch>,
@@ -60,10 +66,3 @@ export const getSearchedAndSortedItems = createSelector<
   }
   return finalSortedItems;
 });
-
-const sortItemsByField = (itemsToSort: any[], fieldName: string) => {
-  return (
-    itemsToSort &&
-    itemsToSort.sort((a, b) => (a[fieldName] > b[fieldName] ? 1 : -1))
-  );
-};

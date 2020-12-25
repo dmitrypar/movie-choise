@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
-import styles from '../../../styles/main.module.scss'
+import styles from "../../../styles/main.module.scss";
 
 type PropsTypes = {
   sortItemSelectorByDate: string;
@@ -21,8 +23,10 @@ export const TextBottomPageHead: React.FC<PropsTypes> = ({
   return (
     <div className={styles.textBottomPageHead}>
       <div className={styles.leftTextBottomPageHead}>
-        <span className={styles.valueFoundLeftTextBottonPageHead}>{moviesCount}</span>
-        <span className={'titleLeftTextBottonPageHead'}>movies found</span>
+        <span className={styles.valueFoundLeftTextBottonPageHead}>
+          {moviesCount}
+        </span>
+        <span className="titleLeftTextBottonPageHead">movies found</span>
       </div>
       <div className={styles.rightTextBottomPageHead}>
         <div className={styles.sortBlock}>Sort by</div>

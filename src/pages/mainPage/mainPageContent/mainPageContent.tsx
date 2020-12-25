@@ -1,16 +1,17 @@
+/* eslint-disable  */
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { RouteComponentProps, withRouter, useLocation } from "react-router-dom";
 import {
   getSearchedAndSortedItems,
   switchResultByTitleOrPerson,
 } from "../../../redux/search/selectors";
 import { getSimilarSortedItems } from "../../../redux/item/selectors";
 import { onCurrentItemSelected } from "../../../redux/item/actions";
-import {MainItemDetailsContainer} from "../../../components/mainItemDetails/mainItemDetails/mainItemDetailsContainer";
-import { RouteComponentProps, withRouter } from "react-router-dom";
-import styles from '../../../styles/main.module.scss'
+import { MainItemDetailsContainer } from "../../../components/mainItemDetails/mainItemDetails/mainItemDetailsContainer";
+import styles from "../../../styles/main.module.scss";
 
-type PropsTypes = RouteComponentProps
+type PropsTypes = RouteComponentProps;
 
 const MainPageContent: React.FC<PropsTypes> = ({ match, history }) => {
   const dispatch = useDispatch();
@@ -19,15 +20,15 @@ const MainPageContent: React.FC<PropsTypes> = ({ match, history }) => {
   const similarItems = useSelector(getSimilarSortedItems);
 
   const onItemButtonClick = (id: number) => {
-    const filmIdPush = (id: number) => history.push(`/film/${id}`);
+    history.push(`/film/${id}`);
     dispatch(onCurrentItemSelected(id));
-    filmIdPush(id);
   };
 
   const getResultsToRender = () => {
     if (match.path === "/search") {
       return searchResults;
-    } else if (match.path === "/film/:id") {
+    }
+    if (match.path === "/film/:id") {
       return similarItems;
     }
   };
@@ -43,7 +44,7 @@ const MainPageContent: React.FC<PropsTypes> = ({ match, history }) => {
             try {
               return (
                 <MainItemDetailsContainer
-                  key={res.overview || res.title}
+                  key={res.id && res.title}
                   onItemButtonClick={onItemButtonClick}
                   searchSwitch={searchSwitch}
                   res={res}

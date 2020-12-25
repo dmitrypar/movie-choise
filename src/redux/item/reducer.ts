@@ -9,7 +9,6 @@ export type ItemState = {
   similarListItems: SimilarListItemsType | null;
 };
 
-
 const initialItemState: ItemState = {
   currentItemId: null,
   currentItem: null,

@@ -1,6 +1,6 @@
 export type SearchedItemsByNameTypes = {
   page: number;
-  results: SearchedResultsByNameTypes[] 
+  results: SearchedResultsByNameTypes[];
   total_pages: number;
   total_results: number;
 };
@@ -19,12 +19,12 @@ export type SearchedResultsByNameTypes = {
   video: boolean;
   vote_average: number;
   vote_count: number;
-  popularity?: number
+  popularity?: number;
 };
 
 export type SearchedItemsByPersonTypes = {
   page: number;
-  results: SearchedResultsByPersonTypes[] 
+  results: SearchedResultsByPersonTypes[];
   total_pages: number;
   total_results: number;
 };

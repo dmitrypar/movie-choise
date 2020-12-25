@@ -1,8 +1,6 @@
 import { combineReducers } from "redux";
-import { itemsReducer } from "./search/reducer";
-import { currentItemReducer } from "./item/reducer";
-import { ItemState } from "./item/reducer";
-import { ItemsState } from "./search/reducer";
+import { itemsReducer, ItemsState } from "./search/reducer";
+import { currentItemReducer, ItemState } from "./item/reducer";
 
 export type AplicationType = {
   searchedItems: ItemsState;

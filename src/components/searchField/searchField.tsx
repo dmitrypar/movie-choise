@@ -1,8 +1,11 @@
-import React, { ChangeEvent, useState } from "react";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-unused-vars */
+import React, { ChangeEvent } from "react";
+import { useDispatch } from "react-redux";
 import { Logo } from "../logo/logo";
 import { setSearchSwitch } from "../../redux/search/actions";
-import { useDispatch } from "react-redux";
-import styles from '../../styles/main.module.scss'
+import styles from "../../styles/main.module.scss";
 
 type inputSearchValueType = {
   mainSearchForm: string;
@@ -47,7 +50,9 @@ export const SearchField: React.FC<PropsTypes> = ({
           <div
             onClick={sortbyTitle}
             className={
-              searchSwitch ? styles.sortByTitleButtonChosed : styles.sortByTitleButton
+              searchSwitch
+                ? styles.sortByTitleButtonChosed
+                : styles.sortByTitleButton
             }
           >
             TITLE

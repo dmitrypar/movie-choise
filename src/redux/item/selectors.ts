@@ -1,7 +1,6 @@
-import { AplicationType } from "./../root-reducer";
-import { SimilarListItemsType } from "./types";
 import { createSelector } from "reselect";
-import { SimilarResultItem } from "./types";
+import { AplicationType } from "../root-reducer";
+import { SimilarListItemsType, SimilarResultItem } from "./types";
 
 export const getItemData = (state: AplicationType) => {
   return state.currentItemStore.currentItem;
@@ -22,6 +21,13 @@ export const getItemsForSimilar = createSelector(
   }
 );
 
+const sortItemsByField = (itemsToSort: Array<any>, fieldName: string) => {
+  return (
+    itemsToSort &&
+    itemsToSort.sort((a, b) => (a[fieldName] > b[fieldName] ? 1 : -1))
+  );
+};
+
 export const getSimilarSortedItems = createSelector<
   AplicationType,
   ReturnType<typeof getItemsForSimilar>,
@@ -40,10 +46,3 @@ export const getSimilarSortedItems = createSelector<
     return finalSortedItems;
   }
 );
-
-const sortItemsByField = (itemsToSort: Array<any>, fieldName: string) => {
-  return (
-    itemsToSort &&
-    itemsToSort.sort((a, b) => (a[fieldName] > b[fieldName] ? 1 : -1))
-  );
-};

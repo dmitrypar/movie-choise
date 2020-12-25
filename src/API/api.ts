@@ -8,19 +8,15 @@ const instance = axios.create({
   },
 });
 
-
-
 export const API = {
   fetchSearchedItemsByTitle(query: string) {
-    return instance
-      .get("search/movie", {
-        params: {
-          page: 1,
-          include_adult: false,
-          query,
-        },
-      })
-     
+    return instance.get("search/movie", {
+      params: {
+        page: 1,
+        include_adult: false,
+        query,
+      },
+    });
   },
 
   fetchSearchedItemsByPerson(query: string) {

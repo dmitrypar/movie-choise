@@ -1,6 +1,6 @@
 import React from "react";
 import { ItemType } from "../../../redux/item/types";
-import styles from '../../../styles/main.module.scss'
+import styles from "../../../styles/main.module.scss";
 
 type PropsTypes = {
   itemDetails: ItemType;
@@ -21,7 +21,9 @@ export const ItemTextDescription: React.FC<PropsTypes> = ({ itemDetails }) => {
         {itemDetails && itemDetails.release_date}
       </div>
       <div className={styles.tagLine}>{itemDetails && itemDetails.tagline}</div>
-      <div className={styles.overview}>{itemDetails && itemDetails.overview}</div>
+      <div className={styles.overview}>
+        {itemDetails && itemDetails.overview}
+      </div>
       <div className={styles.budget}>
         {`Budget ${itemDetails && itemDetails.budget} $`}
       </div>

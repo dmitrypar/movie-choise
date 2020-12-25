@@ -1,8 +1,13 @@
-import { onItemChoeseSagaWorker, onSearchSagaWorker, onSortSagaWorker } from "./sagas";
+import { takeEvery, all } from "redux-saga/effects";
+import {
+  onItemChoeseSagaWorker,
+  onSearchSagaWorker,
+  onSortSagaWorker,
+} from "./sagas";
 import { ItemLabelTypes } from "../redux/item/action-types";
 import { SearchLabelTypes } from "../redux/search/action-types";
-import { takeEvery, all } from "redux-saga/effects";
 
+// eslint-disable-next-line import/no-default-export
 export default function* rootSaga() {
   yield all([
     takeEvery(ItemLabelTypes.REQUEST_CURRENT_ITEM, onItemChoeseSagaWorker),

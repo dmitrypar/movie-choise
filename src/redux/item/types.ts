@@ -33,7 +33,7 @@ export type SimilarListItemsType = {
   total_results: number;
 };
 
-//type SimilarListResultsItems = [SimilarResultItem]
+// type SimilarListResultsItems = [SimilarResultItem]
 
 export type SimilarResultItem = {
   adult: boolean;
@@ -53,5 +53,3 @@ export type SimilarResultItem = {
 };
 
 export type currentItemReducerTypes = {};
-
-

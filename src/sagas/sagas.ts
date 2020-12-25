@@ -1,22 +1,22 @@
-import { handleErrors } from "./../components/error-boundry/error-service";
+import { call, put } from "redux-saga/effects";
+import { handleErrors } from "../components/error-boundry/error-service";
 import {
   SearchedItemsByNameTypes,
   SearchedItemsByPersonTypes,
-} from "./../redux/search/types";
-import { AxiosResponseType } from "./../redux/common-types";
-import { ItemType, SimilarListItemsType } from "./../redux/item/types";
+} from "../redux/search/types";
+import { AxiosResponseType } from "../redux/common-types";
+import { ItemType, SimilarListItemsType } from "../redux/item/types";
 import {
   requestSearchedresults,
   setSortToReleaseDateGlobal,
   getSearchResultByName,
   getSearchResultByPerson,
-} from "./../redux/search/actions";
+} from "../redux/search/actions";
 import {
   onCurrentItemSelected,
   saveCurrentItem,
   getSimilarListItem,
-} from "./../redux/item/actions";
-import { call, put } from "redux-saga/effects";
+} from "../redux/item/actions";
 import { API } from "../API/api";
 
 export function* onItemChoeseSagaWorker(
