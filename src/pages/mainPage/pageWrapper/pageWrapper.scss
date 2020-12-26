@@ -1,6 +1,6 @@
-@import '../mainpageHead/mainPageHead.scss';
-@import '../mainPageContent/mainPageContent.scss';
-@import '../mainPageFooter/mainPageFooter.scss';
+@import '../pageHead/pageHead.scss';
+@import '../pageContent/pageContent.scss';
+@import '../pageFooter/pageFooter.scss';
 @import "../../../styles/variables";
 
 
@@ -11,11 +11,6 @@
     width: $main-block-width;
 }
 
-// @media (max-width:1050px){
-//     .mainContainer {
-//        max-width: $main-block-width;
-//     } 
-// }
 
 .mainWrapper {
     display: flex;

@@ -1,7 +1,7 @@
 import React from "react";
 import { API } from "../../../API/api";
 import { SearchedResultsByNameTypes } from "../../../redux/search/types";
-import { MainItemDetails } from "./mainItemDetails";
+import { ItemDetails } from "./itemDetails";
 
 type PropsTypes = {
   onItemButtonClick: (id: number) => void;
@@ -9,7 +9,7 @@ type PropsTypes = {
   res: SearchedResultsByNameTypes;
 };
 
-export const MainItemDetailsContainer: React.FC<PropsTypes> = ({
+export const ItemDetailsContainer: React.FC<PropsTypes> = ({
   onItemButtonClick,
   searchSwitch,
   res,
@@ -21,7 +21,7 @@ export const MainItemDetailsContainer: React.FC<PropsTypes> = ({
   const releaseData = release_date && release_date.slice(0, 4);
   const popularityValue = searchSwitch ? popularity : null;
   return (
-    <MainItemDetails
+    <ItemDetails
       onItemClickHandler={onItemClickHandler}
       coverImage={coverImage}
       itemTitle={itemTitle}

@@ -1,6 +1,6 @@
 import React from "react";
-import { MainPage } from "./mainPage/mainPageWrapper/mainPageWrapper";
+import { SearchPageWrapper } from "./mainPage/pageWrapper/searchPageWrapper";
 
 export const Search = () => {
-  return <MainPage />;
+  return <SearchPageWrapper />;
 };

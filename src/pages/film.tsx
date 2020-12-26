@@ -1,6 +1,6 @@
 import React from "react";
-import { MainPage } from "./mainPage/mainPageWrapper/mainPageWrapper";
+import { ItemPageWrapper } from "./mainPage/pageWrapper/itemPageWrapper";
 
 export const Film = () => {
-  return <MainPage />;
+  return <ItemPageWrapper />;
 };

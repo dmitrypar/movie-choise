@@ -12,7 +12,7 @@ type PropsTypes = {
   popularity: number;
 };
 
-export const MainItemDetails: React.FC<PropsTypes> = ({
+export const ItemDetails: React.FC<PropsTypes> = ({
   onItemClickHandler,
   coverImage,
   itemTitle,
